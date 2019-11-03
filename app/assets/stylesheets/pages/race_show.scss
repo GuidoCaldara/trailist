@@ -1,0 +1,49 @@
+
+.show-race-container{
+      padding-top: 54px;
+
+}
+.race-infos{
+  border: 1px solid black;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.organizer-infos{
+  position: absolute;
+  right: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .organizer-no-logo{
+    background: red;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.race-card-details{
+  display: flex;
+  p{
+    margin-right: 10px;
+    margin-bottom: 5px
+  }
+  &.bottom{
+    border-bottom: 1px solid #9c9c9c;
+    margin-bottom: 16px;
+    padding: 8px 0px
+  }
+}
+
+.race-window-title{
+  margin-bottom: 5px
+}
+
+.prices-info-window{
+
+}

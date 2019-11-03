@@ -1,0 +1,12 @@
+<%= simple_form_for [race, photo] do |f| %>
+  <%= f.input :picture_cache, as: :hidden %>
+  <div class="race-photo-input file btn btn-primary">
+    Seleziona una o più immagini
+    <%= f.input :picture, input_html: { multiple: true } %>
+  </div>
+  <div class="race-photo-preview"  id="preview"></div>
+  <%= f.button :submit, "Carica", class:'btn btn-green', style: 'display: none' %>
+<% end %>
+
+
+

@@ -1,0 +1,66 @@
+<div class="container form-container">
+  <%= render "step_creation", one: true, two: false, three: false %>
+  <div class="form-card card p-4">
+    <div id="race-form-1">
+        <h1>Inizia con le informazioni di base</h1>
+        <%= simple_form_for @race do |f| %>
+          <div class="row">
+            <div class="col-md-8">
+              <%= f.input :name, label: "Nome" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :race_type, collection: ["Trail", "Skyrunning", "Ultratrail"], label: "Tipo di gara" %>
+            </div>  
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+               <%= f.input :length, label: "Distanza in Km", input_html: { min: '0', max: '400', step: '1' }%>  
+            </div>
+            <div class="col-md-4">
+              <%= f.input :elevation, label: "Dislivello positivo in m", input_html: { min: '0', max: '30000', step: '50' }%> 
+            </div>
+            <div class="col-md-5">
+              <%= f.input :location, label: "Dove si svolge la gara" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <%= f.input :date, label: "Data dell'evento", html5: true, input_html: { class: 'date-simple', placeholder: "Seleziona la data..." }  %>
+            </div>
+            <div class="col-md-5">
+              <%= f.input :departure_time, label: "Orario di Partenza",  html5: true,  input_html: { class: 'date-hour', placeholder: "Seleziona l'orario..." }  %>
+            </div>
+            <div class="col-md-2 justify-content-center align-items-center">
+            <label for="">Continua</label>
+
+             <div class="w-100" id="next-form-view">
+               <p class="m-0"><i class="fas fa-angle-right"></i></p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div style="display:none" id="race-form-2">
+        <%= f.input :description, label: "Descrizione della corsa.", :input_html => { :rows => 6 , :style => 'width: 100%'} %>
+        <%= f.input :goodies, label: "Pacco gara (Se presente)", :input_html => { :rows => 4 , :style => 'width: 100%'} %>
+        <div class="d-flex justify-content-between align-items-center w-100">
+            <div  id="previous-form-view"><i class="fas fa-angle-left"></i></div>
+            <%= f.button :submit, "Continua", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+
+    </div>
+   
+  </div>
+</div>
+
+
+<script>
+    document.querySelector("#next-form-view").addEventListener("click", ()=>{
+      document.querySelector("#race-form-1").style.display = "none"
+      document.querySelector("#race-form-2").style.display = "block"
+    })
+    document.querySelector("#previous-form-view").addEventListener("click", ()=>{
+      document.querySelector("#race-form-2").style.display = "none"
+      document.querySelector("#race-form-1").style.display = "block"
+    })
+  </script>

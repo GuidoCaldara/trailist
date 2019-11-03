@@ -1,0 +1,40 @@
+form {
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-control[readonly]{
+    background-color: white
+  }
+
+  .form-control-label {
+    font-size: 16px
+  }
+
+  .form-control {
+    font-size: 16px;
+
+    &:focus {
+      border-color: white;
+      box-shadow: 0 0 0 1px rgb(94, 94, 94);
+    }
+   }
+}
+
+
+.form-card {
+  -webkit-box-shadow: 0px 0px 13px 3px rgba(205,205,205,0.48);
+  -moz-box-shadow: 0px 0px 13px 3px rgba(205,205,205,0.48);
+  box-shadow: 0px 0px 13px 3px rgba(205,205,205,0.48);
+    border-radius: 8px;
+  border-color: #e6e0e0b3;
+  height: 100%;
+  h1{
+    margin-bottom: 2rem
+  }
+}
+
+
+.logo-preview{
+  object-fit: cover;
+}

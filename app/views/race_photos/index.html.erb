@@ -1,0 +1,25 @@
+      <%#= render "races/step_creation", one: true, two: true, three: true %>
+
+<div class="container pt-5">
+  <div class="race-photos-header">
+    <div>
+      <h1>Gestisci la galleria fotografica della corsa</h1>
+      <p>Aggiungi foto del percorso, delle scorse edizioni o qualcunque cosa blah blah blah</p>
+    </div>
+    <%= render 'form', race: @race, photo: @photo %>
+    <div id="preview"></div>
+  </div>
+  <div class="row">
+    <% @race.race_photos.each do |photo|%>
+    <div class="col-md-3">
+      <div class="card photo-card" style="background-image: url('<%= cl_image_path photo.picture %>')">
+       <%= link_to race_photo_path(photo), method: :delete, data: {confirm: 'Sei sicuro di voler rimuovere l\'immagine?'} do  %>
+        <i class="fas fa-trash"></i>
+       <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Vedi la pagina della gara", @race %>

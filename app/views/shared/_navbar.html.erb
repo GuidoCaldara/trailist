@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <% unless organizer_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Sei un organizzatore?', new_organizer_registration_path, class: 'nav-link' %>
+        </li>
+      <% else %>
+        <%= link_to 'Log Out', destroy_organizer_session_path, method: :delete, class: 'nav-link' %>
+        <% if current_organizer.organization %>
+          <%= link_to  'La tua Organizzazione', organization_path(current_organizer.organization), class:'nav-link' %>
+        <% else %>
+          <%= link_to  'Aggiungi il tuo gruppo', new_organization_path, class:'nav-link' %>
+        <% end %>
+        <% end %>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+

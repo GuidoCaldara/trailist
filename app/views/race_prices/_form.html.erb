@@ -1,0 +1,16 @@
+<%= simple_form_for [race, price], remote: true do |f| %>
+<div class="row">
+    <div class="col-sm-6">
+        <%= f.input :start_date, label: "Prezzo valido dal...al...", html5: true, input_html: { class: 'date-simple', placeholder: "Seleziona la data..." }  %>
+      </div>
+      <div class="col-sm-3">
+          <%= f.input :price, label: "Prezzo" %>
+        </div>    
+      <div class="col-sm-3 d-flex flex-column">
+        <label for="">Conferma</label>
+        <%= f.button :submit, "Aggiungi prezzo", class: 'btn btn-green' %>
+      </div>    
+  </div>
+<% end %>
+
+

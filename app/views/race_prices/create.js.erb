@@ -1,0 +1,24 @@
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('new_race_price');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+function addPrice(priceHtml) {
+  const prices = document.getElementById('prices');
+  prices.insertAdjacentHTML('beforeend', priceHtml);
+}
+
+<% if @price.errors.any? %>
+  refreshForm('<%= j render "race_prices/form", price: @price, race: @race %>');
+<% else %>
+  addPrice('<%= j render "race_prices/show", price: @price %>');
+  var newReviewForm = document.getElementById('new_race_price');
+  newReviewForm.innerHTML = '<%= j render "race_prices/form", race: @race, price: RacePrice.new %>';
+
+<% end %>
+
+
+    flatpickr(`#race_price_start_date`, {
+      mode: "range",
+     }
+    )  

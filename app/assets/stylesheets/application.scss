@@ -1,0 +1,42 @@
+$red: #FF585E;
+$green: #b5e550;
+$darkgreen: #99ce2a;
+
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'flatpickr/dist/flatpickr';
+@import 'config/font';
+@import 'pages/index';
+@import 'components/index';
+@import "font-awesome";
+
+
+
+body{
+  background-color:#f7f7f7;
+  color: #484848 !important;
+}
+
+
+
+#next-form-view {
+  padding: 6px 10px;
+  background-color: $red;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+
+#previous-form-view{
+  padding: 6px 10px;
+  background-color: $red;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+
+}

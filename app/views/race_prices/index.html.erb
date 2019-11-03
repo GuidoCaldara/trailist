@@ -1,0 +1,24 @@
+<div class="container padding-form-container">
+    <%= render "races/step_creation", one: true, two: true, three: false %>
+    <div class="form-card card p-4">
+      <div id="race-form-1">
+        <h1 class="mb-1">Inserisci il prezzo dell'iscrizione</h1>
+        <p class="mb-4">Puoi inserire diversi prezzi con diverse date</p>
+        <%= render 'form', race: @race, price: @price %>
+        <div class="container" id="prices">
+            <% @prices.each do |price| %>
+             <%= render "race_prices/show", price: price %>
+            <% end %>
+          </div>                
+      </div>
+      <div class="d-flex justify-content-end">
+        <%= link_to  race_race_photos_path(@race) do %>
+          <button type="button" class="btn btn-green float-right">Continua</button>
+        <% end %>
+  
+      </div>
+    </div>
+  </div>
+
+
+<%= link_to "Add Pictures", race_race_photos_path(@race) %>

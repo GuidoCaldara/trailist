@@ -1,0 +1,50 @@
+.photo-index-banner{
+ margin: 0 auto;
+ padding: 3% 5% 3% 5%;
+ text-align: center
+}
+
+#new_race_photo{
+  align-items: center
+}
+
+.race-photo-preview{
+  margin: 10px 10px;
+  img{
+    width: 100px;
+    height: auto;
+    margin-right: 13px;
+
+  }
+}
+
+
+.race-photo-input {
+  position: relative;
+  div{
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+  }
+}
+
+
+
+
+// .photo-form-card-small{
+//   max-height: 225px !important;
+// }
+
+// .photo-form-card-full{
+//   height: auto !important;
+// }
+
+// #preview{
+//   img{
+//     margin: 10px;
+//     height: 40px;
+//     object-fit: cover
+//   }
+// }

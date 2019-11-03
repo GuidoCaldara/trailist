@@ -1,0 +1,35 @@
+<div class="padding-form-container container py-5">
+      <div class="form-card card p-5">
+        <h1 class="mb-4">Inserisci la tua società sportiva</h1>  
+          <%= simple_form_for @organization do |f| %>
+          <div class="row">
+            <div class="col-md-6">
+                <%= f.input :name, label:"Nome del gruppo" %>      
+            </div>
+            <div class="col-md-6">
+                <%= f.input :email, label: "Indirizzo email", input_html:{ value: current_organizer.email} %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :phone, label:"Contatto telefonico" %>      
+            </div>
+            <div class="col-md-6">
+              <%= f.input :location, label: "Dove ha sede il gruppo?" %>
+            </div>
+          </div>          
+          <div class="row">
+              <div class="col-md-9">
+                <%= f.input :description, label: "Racconta qualcosa sul tuo gruppo sportivo.", :input_html => { :rows => 7 , :style => 'width: 100%'}%>
+              </div>
+              <div class="col-md-3">
+                  <%= f.input :logo, label: "Logo del gruppo", input_html: { accept: ".jpg, .gif, .png" } %>
+                  <img height="100" class="logo-preview" id="logo-preview"/>
+                  <%= f.input :logo_cache, as: :hidden %>
+              </div>
+            </div>          
+          <%= f.submit "Conferma", class: "float-right btn btn-green"%>
+        <% end %>
+  
+      </div>
+</div>
