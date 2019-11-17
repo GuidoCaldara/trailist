@@ -1,0 +1,46 @@
+  <%= simple_form_for race do |f| %>
+  <div class="row py-5 form-row top">
+    <div class="col-md-4">
+      <h4>Informazioni di base</h4>
+    </div>
+    <div class="col-md-8">
+      <%= f.input :name, label: "Nome" %>
+      <%= f.input :race_type, collection: ["Trail", "Skyrunning", "Ultratrail"], label: "Tipo di gara" %>
+      <div class="d-flex justify-content-between">
+        <%= f.input :length, label: "Distanza in Km", input_html: { min: '0', max: '400', step: '1' }, wrapper_html: {class: "w-50" }%>
+        <%= f.input :elevation, label: "Dislivello positivo in m", input_html: { min: '0', max: '30000', step: '50' }, wrapper_html: {class: "w-50 ml-3" }%>
+      </div>
+    </div>
+  </div>
+  <div class="row py-5 form-row">
+    <div class="col-md-4">
+      <h4>Luogo e data</h4>
+    </div>
+    <div class="col-md-8">
+      <%= f.input :location, label: "Dove si svolge la gara" %>
+      <div class="d-flex justify-content-between">
+        <%= f.input :date, label: "Data dell'evento", html5: true, input_html: { class: 'date-simple', placeholder: "Seleziona la data..." }, wrapper_html: {class: "w-50" }  %>
+        <%= f.input :departure_time, label: "Orario di Partenza",  html5: true,  input_html: { class: 'date-hour', placeholder: "Seleziona l'orario..." },  wrapper_html: {class: "w-50" }  %>
+      </div>
+    </div>
+  </div>
+  <div class="row py-5 form-row top">
+    <div class="col-md-4">
+      <h4>Descrizione e Percorso</h4>
+    </div>
+    <div class="col-md-8">
+        <%= f.input :description, label: "Descrizione della corsa.", :input_html => { :rows => 6 , :style => 'width: 100%'} %>
+      </div>
+    </div>
+  <div class="row py-5 form-row">
+    <div class="col-md-4">
+      <h4>Pacco Gara</h4>
+    </div>
+    <div class="col-md-8">
+        <%= f.input :goodies, label: "Pacco gara (Se presente)", :input_html => { :rows => 4 , :style => 'width: 100%'} %>
+    </div>
+  </div>
+  <div class="row py-5 d-flex justify-content-end">
+    <%= f.button :submit, 'Continua', class: "mr-0 btn btn-primary px-3" %>
+  </div>
+<% end %>

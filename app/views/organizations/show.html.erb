@@ -1,7 +1,85 @@
+<%# if current_user == organization.user %>
+<%# end %>
+
 <div class="container">
-    <h1><%= @organization.name %></h1>
-    <p><%= @organization.email %></p>
-    <p><%= @organization.location %></p>
-    <p><%= @organization.description %></p>
-    <%= link_to "Add a New Race", new_race_path %>
+  <div class="row form-row">
+    <div class="col-md-8 pr-3 mb-3">
+      <div class="d-flex align-items-center">
+        <% unless @organization.logo.blank? %>
+        <%= cl_image_tag @organization.logo, class: "d-block avatar avatar-xl p-2 mb-2 mr-4" %>
+      <% end %>
+      <div>
+         <h1><%= @organization.name %></h1>
+        <p class="text-primary">
+          <i class="fa-map-marker-alt fa mr-1"></i> <%= @organization.location %>
+        </p>
+      </div>
+
+      </div>
+      <div class="pb-3 mb-4 border-bottom-light">
+        <h6 class="mt-4 mb-2">Il gruppo</h6>
+        <p class="text-muted font-weight-light">
+          <%= @organization.description %>
+        </p>
+      </div>
+      <h4 class="mt-4 mb-4">Gare organizzate</h4>
+      <div class="row">
+              <% @organization.races.each do |race| %>
+        <div class="col-md-6 mb-3">
+          <%= render 'races/card', race: race %>
+        </div>
+      <% end %>
+
+      </div>
+      </div>
+      <div class="col-md-4">
+      <div class="card border-0 shadow mb-5">
+        <div class="card-header bg-gray-100 py-4 border-0">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <p class="subtitle text-sm text-primary">Drop Us a Line</p>
+              <h4 class="mb-0">Contact</h4>
+            </div>
+          </div>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mb-4">
+                    <% if @organization.phone %>
+                      <li class="mb-2"> <a href="#" class="text-gray-00 text-sm text-decoration-none"><i class="fa fa-phone mr-3"></i><span class="text-muted">(020) 123 456 789</span></a></li>
+                    <% end %>
+                    <% if @organization.email %>
+                      <li class="mb-2"> <a href="#" class=" text-sm text-decoration-none"><i class="fa fa-envelope mr-3"></i><span class="text-muted">info@example.com</span></a></li>
+                    <% end %>
+                    <% if @organization.website %>
+                      <li class="mb-2"> <a href="#" class=" text-sm text-decoration-none"><i class="fa fa-globe mr-3"></i><span class="text-muted">www.example.com</span></a></li>
+                    <% end %>
+                    <% if @organization.facebook %>
+                      <li class="mb-2"> <a href="#" class="text-blue text-sm text-decoration-none"><i class="fab fa-facebook mr-3"></i><span class="text-muted">Facebook</span></a></li>
+                    <% end %>
+                  </ul>
+                  <div class="text-center"><a href="#" class="btn btn-outline-primary btn-block"> <i class="far fa-paper-plane mr-2"></i>Send a Message</a></div>
+                </div>
+              </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <h1><%#= @organization.name %></h1>
+    <p><%#= @organization.email %></p>
+    <p><%#= @organization.location %></p>
+    <p></p>
+    <%#= link_to "Add a New Race", new_race_path %>
 </div>

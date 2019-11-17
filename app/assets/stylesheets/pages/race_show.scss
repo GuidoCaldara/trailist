@@ -1,12 +1,16 @@
 
 .show-race-container{
-      padding-top: 54px;
+  padding-top: 54px;
 
 }
+
+
 .race-infos{
-  border: 1px solid black;
+  border: 1px solid transparent;
   border-radius: 14px;
   padding: 24px;
+  background: white;
+
 }
 
 .organizer-infos{
@@ -44,6 +48,73 @@
   margin-bottom: 5px
 }
 
-.prices-info-window{
+.avatar-container{
+    border: 1px solid gray;
+    overflow: hidden;
+    display: flex;
+    width: 30%;
+    height: auto;
+    padding: 4px;
+    background: white;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+img{
+  width: 100%;
+ }
+}
 
+.review-card{
+  padding-top: 2rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem !important;
+    padding-left: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+
+
+
+
+    //border: 1px solid #9c9c9c;
+
+
+
+
+.review-content{
+    position: relative;
+    width: 80%;
+    padding: 10px 15px 10px 15px;
+    .review-date{
+position: absolute;
+    right: 20px;
+    bottom: 0px;    }
+}
+.user-info-box{
+  padding: 15px 8px;
+  display: flex;
+  width: 15%;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #9c9c9c;
+ div{
+  margin-bottom:10px
+ }
+}
+
+.show-review-container{
+  padding-bottom: 54px
+}
+.review-stars-contiainer{
+  margin-bottom: 12px;
+}
+
+.review-container-header{
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 60px auto;
+  h2{
+    margin-right: 24px
+  }
 }

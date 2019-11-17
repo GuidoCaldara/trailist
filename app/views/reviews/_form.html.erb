@@ -1,0 +1,39 @@
+<div class="modal-body">
+  <%= simple_form_for([race, review]) do |f| %>
+  <label class="mb-2" for="">A quale edizione di <strong><%= race.name %></strong> hai partecipato?</label>
+  <p class="mb-1 text light small">Se hai partecipato a più di un edizione, inserisci l'ultima</p>
+  <%= f.input :partecipation_year, label: false, collection: (2000...2020).to_a %>
+  <div class="row">
+    <div class="col-md-6">
+      <label class="mb-2" for="">Voto all'organizzazione</label>
+      <p class="mb-1 text light small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam aut nesciunt</p>
+      <%= render 'reviews/star_rating', target: "review_track" %>
+      <%= f.hidden_field :track %>
+      <label class="mb-2" for="">Voto all'organizzazione</label>
+      <p class="mb-1 text light small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam aut nesciunt</p>
+      <%= render 'reviews/star_rating', target: "review_organization" %>
+      <%= f.hidden_field :organization %>
+    </div>
+    <div class="col-md-6">
+      <label class="mb-2" for="">Voto all'organizzazione</label>
+      <p class="mb-1 text light small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam aut nesciunt</p>
+      <%= render 'reviews/star_rating', target: "review_difficulty" %>
+      <%= f.hidden_field :difficulty %>
+      <label class="mb-2" for="">Voto all'organizzazione</label>
+      <p class="mb-1 text light small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam aut nesciunt</p>
+      <%= render 'reviews/star_rating', target: "review_recomandation" %>
+      <%= f.hidden_field :recomandation %>
+    </div>
+  </div>
+  <%= f.input :content, label: "Il tuo commento su #{race.name}" %>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<%= f.button :submit, class:"btn btn-primary"%>
+</div>
+
+
+
+<% end %>
+
+

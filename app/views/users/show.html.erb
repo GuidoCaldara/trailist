@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-3 d-flex flex-column align-items-center py-4">
+      <% if @user.avatar.blank? %>
+        <%= image_tag "runner-avatar" ,class: "d-block avatar avatar-xxl p-2 mb-4"%>
+      <% else %>
+        <%= image_tag @user.avatar ,class: "d-block avatar avatar-xxl user-prifile-avatar p-2 mb-4"%>
+      <% end %>
+      <h5><%= @user.username %></h5>
+      <p class="text-primary">
+        <i class="fa-map-marker-alt fa mr-1"></i> Albino, Bg, Italy
+      </p>
+    </div>
+  <div class="col-md-9">
+    <div class="border-bottom-light py-4">
+      <h4>About</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit iusto, autem debitis eos? Distinctio placeat nam sequi suscipit reprehenderit? Voluptatem, impedit qui non libero. Sed dicta obcaecati dolores ad aliquid!</p>
+    </div>
+    <div class="border-bottom-light py-4">
+      <h4>Recensioni</h4>
+        <% if @user.reviews.any? %>
+        <% else %>
+          <p class="text-muted mb-5"><%= @user.username %> Non ha ancora lasciato recensioni</p>
+        <% end %>
+    </div>
+
+  </div>
+
+  </div>
+</div>

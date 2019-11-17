@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_144622) do
+ActiveRecord::Schema.define(version: 2019_11_10_042913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,13 +21,15 @@ ActiveRecord::Schema.define(version: 2019_09_30_144622) do
     t.string "phone"
     t.string "logo"
     t.text "description"
-    t.bigint "organizer_id"
+    t.bigint "user_id"
     t.string "location"
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["organizer_id"], name: "index_organizations_on_organizer_id"
+    t.string "website"
+    t.string "facebook"
+    t.index ["user_id"], name: "index_organizations_on_user_id"
   end
 
   create_table "organizers", force: :cascade do |t|
@@ -80,7 +82,23 @@ ActiveRecord::Schema.define(version: 2019_09_30_144622) do
     t.string "video"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "distance_type"
     t.index ["organization_id"], name: "index_races_on_organization_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "race_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "partecipation_year"
+    t.integer "track"
+    t.integer "organization"
+    t.integer "recomandation"
+    t.integer "difficulty"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["race_id"], name: "index_reviews_on_race_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,12 +109,16 @@ ActiveRecord::Schema.define(version: 2019_09_30_144622) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "organizations", "organizers"
+  add_foreign_key "organizations", "users"
   add_foreign_key "race_photos", "races"
   add_foreign_key "race_prices", "races"
   add_foreign_key "races", "organizations"
+  add_foreign_key "reviews", "races"
+  add_foreign_key "reviews", "users"
 end

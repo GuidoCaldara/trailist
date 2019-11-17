@@ -4,6 +4,7 @@ $darkgreen: #99ce2a;
 
 @import 'bootstrap/scss/bootstrap.scss';
 @import 'flatpickr/dist/flatpickr';
+@import 'leaflet/dist/leaflet';
 @import 'config/font';
 @import 'pages/index';
 @import 'components/index';
@@ -12,7 +13,7 @@ $darkgreen: #99ce2a;
 
 
 body{
-  background-color:#f7f7f7;
+  background-color:#FFF ;
   color: #484848 !important;
 }
 
@@ -39,4 +40,29 @@ body{
   justify-content: center;
   cursor: pointer;
 
+}
+
+
+label{
+  color: #868e96;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.label-small{
+  color: #868e96;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: normal;
+}
+
+
+.list-group-item{
+  position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.075);
 }

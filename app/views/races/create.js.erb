@@ -1,0 +1,21 @@
+function displayNewForm(newform){
+  var form = document.querySelector(".new-form-container")
+  form.innerHTML = newform
+  document.documentElement.scrollTop = 0;
+}
+
+function updatePageInfos(){
+  const stepNumber = document.querySelector("#race_step").innerText
+  document.querySelector("#race_step").innerText = parseInt(stepNumber) + 1
+  document.querySelector("#race_step_description").innerText = "Descrizioni extra"
+  document.querySelector("#race-progress-bar").style.width = "50%"
+
+}
+
+
+<% if @race.errors.any? %>
+  displayNewForm("<%= j render 'new_race_form', race: @race %>")
+<% else %>
+  displayNewForm("<%= j render 'update_description_form', race: @race %>")
+  updatePageInfos()
+<% end %>

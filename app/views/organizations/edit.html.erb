@@ -1,0 +1,12 @@
+<div class="container py-5">
+  <p class="subtitle text-primary">MODIFICA <%= @organization.name.upcase %></p>
+  <div class="d-flex justify-content-between pr-5">
+    <h2><span id="race_step_description">Informazioni e contatti</span></h2>
+
+  </div>
+</div>
+
+
+<div class="new-form-container container py-5">
+  <%= render 'form', organization: @organization %>
+</div>
