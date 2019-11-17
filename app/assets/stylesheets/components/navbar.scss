@@ -1,6 +1,34 @@
 
-.navbar {
-  background-color:white;
-  height: 70px;
+
+
+.box-shadow-light{
+  box-shadow: 0 0 1rem rgba(0,0,0,0.15) !important;
 }
-  
+
+.dropdown-item{
+  display: block;
+    width: 100%;
+    padding: .7rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+
+.dropdown-menu-right{
+    min-width: 200px;
+    //margin-top: 1rem;
+    transition: -webkit-transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+    color: red;
+    border: none;
+    outline: none !important;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,38 @@
+  <%= simple_form_for organization do |f| %>
+  <div class="row py-5 form-row top">
+    <div class="col-md-4">
+      <h4>Informazioni di base</h4>
+    </div>
+    <div class="col-md-8">
+      <%= f.input :name, label: "Nome" %>
+      <%= f.input :location, label: "Dove ha sede il gruppo?" %>
+      <%= f.input :description, label: "Racconta qualcosa sul tuo gruppo sportivo.", :input_html => { :rows => 7 , :style => 'width: 100%'}%>
+    </div>
+  </div>
+  <div class="row py-5 form-row">
+    <div class="col-md-4">
+      <h4>Contatti</h4>
+    </div>
+    <div class="col-md-8">
+      <%= f.input :email, label: "Indirizzo email", input_html:{ value: current_user.email} %>
+      <%= f.input :phone, label:"Contatto telefonico" %>
+    </div>
+  </div>
+  <div class="row py-5 form-row top">
+    <div class="col-md-4">
+      <h4>Logo</h4>
+    </div>
+    <div class="col-md-8">
+          <%= f.input :logo, label: "Logo del gruppo", input_html: { accept: ".jpg, .gif, .png" } %>
+    <img height="100" class="logo-preview" id="logo-preview"/>
+    <%= f.input :logo_cache, as: :hidden %>
+
+      </div>
+    </div>
+  <div class="row py-5 d-flex justify-content-end">
+    <%= f.button :submit, 'Continua', class: "mr-0 btn btn-primary px-3" %>
+  </div>
+<% end %>
+
+
+

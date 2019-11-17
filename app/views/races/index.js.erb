@@ -1,0 +1,4 @@
+var container = document.querySelector(".races-display-container")
+var raceNumber = document.querySelector(".races-size")
+container.innerHTML = "<%= j render 'display_races', races: @races  %>"
+document.querySelector(".races-size").innerText = "<%= @races.size%>"

@@ -1,2 +1,93 @@
-<h1>Races#index</h1>
-<p>Find me in app/views/races/index.html.erb</p>
+<div class="container-fluid">
+  <div class="d-flex mt-4">
+  <h2 class="mb-4">Trova la tua prossima Gara</h2>
+  <button type="button" data-toggle="collapse" data-target="#filterForom" aria-expanded="false" aria-controls="filterForom" class="mb-4 ml-4 btn btn-outline-primary" >Filtri di ricerca</button>
+
+  </div>
+  <div class="collapse" id="filterForom">
+  <div class="card-body">
+    <form action="/races" data-remote="true" method="get" id="race-search-form">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="form_name" class="form-label">Nome</label>
+            <input name="name" id="race_name" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="form_name" class="form-label">Località</label>
+            <input name="location" id="race_location" class="form-control">
+          </div>
+        </div>
+
+      </div>
+      <div class="row mb-3 border-bottom-light">
+        <div class="col-md-4 d-flex">
+          <div class="form-group w-100">
+            <label for="form_name" class="form-label">Periodo</label>
+            <input name="dates" readonly="true" id="race_period" class="form-control">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="" class="form-label">Tipo di Gara</label>
+            <div class="d-flex">
+              <% Race::CATEGORIES.each do |category| %>
+              <input id="<%= category %>" name="category[]" type="checkbox" id="form_name" class="form-control" value="<%= category %>" hidden>
+              <label class="mr-3 btn btn-sm btn-outline-primary race-type-selector" id="<%= category %>-label" for="<%= category %>" ><%= category %></label>
+            <% end %>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="" class="form-label">Distanza</label>
+            <div class="d-flex ">
+              <% Race::DISTANCES.each_with_index do |distance, i| %>
+              <input id="<%= distance %>" name="distance[]" type="checkbox" id="form_name" class="form-control" value="<%= Race::DISTANCE_TYPES[i] %>" hidden>
+              <label class="mr-3 btn btn-sm btn-outline-primary race-type-selector" id="<%= distance %>-label" for="<%= distance %>" ><%= distance %></label>
+            <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <h5 class="mb-2"><span class="races-size"><%= @races.size %></span> risultati</h5>
+      <div class="row races-display-container">
+        <%= render 'display_races', races: @races  %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div
+        id="race-show-map"
+        style="width: 100%; height: 100vh"
+        data-icon="<%= image_path 'map-marker.png' %>"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+
+</script>
+
+

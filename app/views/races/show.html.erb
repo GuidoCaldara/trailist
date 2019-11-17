@@ -1,34 +1,140 @@
-<div class="container show-race-container">
-  <div class="row">
-    <div class="col-md-7">
-      <div class="race-infos">
-        <div class="race-card-details">
-          <p><i class="far fa-calendar-alt mr-2"></i><%= @race.date %></p>
-          <p class="ml-3"><i class="fas fa-map-marked-alt mr-2"></i><%= @race.location %></p>
-        </div>
-        <h1><%= @race.name %></h1>
-        <div class="race-card-details bottom">
-          <p><%= @race.race_type %></p>
-          <p><%= @race.length %>Km</p>
-          <p><%= @race.elevation %>m d+</p>
-        </div>
-        <p><%= @race.description %></p>
-        <p class="bold race-window-title prices-info-window">Prezzo dell'iscrizione</p>
-        <ul>
-          <% @race.race_prices.each do |price| %>
-          <li>Dal <span class="bold"><%= price.start_date.strftime("%d %b %Y") %></span> al <span class="bold"><%= price.end_date.strftime("%d %b %Y") %></span>: <%= price.price %>€ </li>
-          <% end  %>
-        </ul>
-        <p class="bold race-window-title">Pacco gara</p>
-        <p><%= @race.goodies %></p>
-        <p><span class="bold race-window-title">Gara organizzata da:</span> <%= @race.organization.name %> </p>
-      </div>
+<div class="container">
+  <div class="row form-row">
+    <div class="col-md-6">
+      <p class="text-primary">
+        <i class="fa-map-marker-alt fa mr-1"></i> <%= @race.location %>
+      </p>
+      <h1><%= @race.name %></h1>
+      <p class="text-muted text-uppercase mb-4"> <%= l(@race.date, format: :long) %> - PARTENZA ORE <%= @race.departure_time.strftime("%H:%M") %></p>
+      <ul class="list-inline text-sm mb-4">
+        <li class="list-inline-item mr-3"><i class="fa fa-users mr-1 text-secondary"></i> <%= @race.race_type %></li>
+        <li class="list-inline-item mr-3"><i class="fa fa-door-open mr-1 text-secondary"></i> <%= @race.length %>Km</li>
+        <li class="list-inline-item mr-3"><i class="fa fa-bed mr-1 text-secondary"></i> <%= @race.elevation %>m d+</li>
+      </ul>
+
+      <h6 class="mt-4 mb-2">La gara</h6>
+      <p class="text-muted font-weight-light">
+        <%= @race.description %>
+      </p>
+      <h6 class="mt-4 mb-2">L'organizzatore</h6>
+      <p class="text-muted font-weight-light">
+        <%= @race.organization.name %>
+      </p>
+      <h6 class="mt-4 mb-2">Iscrizioni e prezzi</h6>
+      <ul>
+      <% @race.race_prices.each do |price| %>
+        <li class="text-muted">Dal <span class="text bold"><%= price.start_date.strftime("%d %b %Y") %></span> al <span class="text bold"><%= price.end_date.strftime("%d %b %Y") %></span>: <%= price.price %>€ </li>
+      <% end  %>
+      </ul>
+      <h6 class="mt-4 mb-2">Pacco gara</h6>
+      <p class="text-muted font-weight-light">
+        <%= @race.goodies %>
+      </p>
     </div>
-    <div class="col-md-5"></div>
+    <div class="col-md-6">
+      <%= render 'races/carousel', race: @race %>
+       <div
+        id="race-show-map"
+        style="width: 100%; height: 300px"
+        data-marker="<%= image_path 'map-marker.png' %>"
+        data-center="<%= @coordinates.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+
+    </div>
   </div>
 </div>
 
 
-<% @race.race_photos.each do |photo| %>
-<%= cl_image_tag photo.picture, height: 300, width: 400, crop: :fill %>
+
+
+
+
+
+
+
+
+
+<div class="container show-review-container py-5">
+<p class="subtitle text-sm text-primary">Recensioni</p>
+<div class="d-flex align-items-center mb-5">
+  <% if @race.reviews.any? %>
+  <h5 class="mb-4">Leggi le recensioni della corsa</h5>
+<% else %>
+  <h5 class="mb-4"><%= @race.name %> non ha ancora recensioni.</h5>
 <% end %>
+<button type="button" data-toggle="modal" data-target="#newReviewForm" aria-expanded="false" aria-controls="newReviewForm" class="mb-4 ml-4 btn btn-outline-primary" >Lascia un recensione</button>
+</div>
+
+
+
+<!--                 <form id="contact-form" method="get" action="#" class="form">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="name" class="form-label">Your name *</label>
+                        <input type="text" name="name" id="name" placeholder="Enter your name" required="required" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="rating" class="form-label">Your rating *</label>
+                        <select name="rating" id="rating" class="custom-select focus-shadow-0">
+                          <option value="5">★★★★★ (5/5)</option>
+                          <option value="4">★★★★☆ (4/5)</option>
+                          <option value="3">★★★☆☆ (3/5)</option>
+                          <option value="2">★★☆☆☆ (2/5)</option>
+                          <option value="1">★☆☆☆☆ (1/5)</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="form-label">Your email *</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your  email" required="required" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="review" class="form-label">Review text *</label>
+                    <textarea rows="4" name="review" id="review" placeholder="Enter your review" required="required" class="form-control"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Post review</button>
+                </form>
+ -->
+
+
+
+
+
+
+
+  <div class="review-container">
+    <% @race.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  </div>
+
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="newReviewForm" tabindex="-1" role="dialog" aria-labelledby="newReviewForm" aria-hidden="true">
+  <div class="modal-dialog review-modal" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body py-4 pt-0">
+        <h3 class="modal-title" id="newReviewForm">Lascia una recensione</h3>
+        <%= render 'reviews/form', review: @review, race: @race %>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

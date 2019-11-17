@@ -1,8 +1,7 @@
-  <div class="d-flex race-price-box py-1 px-3">
-    <p class="mr-4"> <span  class="mr-2">Dal</span> <%= price.start_date.strftime("%m/%d/%Y") %> <span class="mx-2">al</span> <%= price.end_date.strftime("%m/%d/%Y") %></p>
+  <div class="d-flex race-price-box py-1 py-3">
+    <p class="mr-4"><span  class="mr-2">Dal</span> <%= price.start_date.strftime("%m/%d/%Y") %> <span class="mx-2">al</span> <%= price.end_date.strftime("%m/%d/%Y") %></p>
     <p class="mr-4"><%= price.price %>€</p>
     <%= link_to race_price_path(price), method: :delete do %>
-     <i class="fas fa-trash"></i>
+     <i id="remove-price-btn" class="fas fa-trash"></i>
     <% end %>
-
   </div>

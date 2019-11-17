@@ -6,7 +6,7 @@ class CreateOrganizations < ActiveRecord::Migration[6.0]
       t.string :phone
       t.string :logo
       t.text :description
-      t.references :organizer, foreign_key: true
+      t.references :user, foreign_key: true
       t.string :location
       t.float :latitude
       t.float :longitude

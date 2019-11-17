@@ -8,7 +8,7 @@ const initCalendar = () => {
     "locale": Italian,
      minDate: "today"
   });
-  
+
   flatpickr(`#race_departure_time`, {
     enableTime: true,
     noCalendar: true,
@@ -21,10 +21,14 @@ const initCalendar = () => {
   flatpickr(`#race_price_start_date`, {
     mode: "range",
     "locale": Italian,
+  })
 
+  flatpickr(`#race_period`, {
+    mode: "range",
+    "locale": Italian,
   }
   )
-  
+
 }
 
-export { initCalendar }  
+export { initCalendar }

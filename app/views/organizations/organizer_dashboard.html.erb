@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-3 d-flex flex-column align-items-center py-4">
+      <% if @organization.logo.blank? %>
+        <%= image_tag "runner-avatar" ,class: "d-block avatar avatar-xxl p-2 mb-4"%>
+      <% else %>
+        <%= cl_image_tag @organization.logo ,class: "d-block avatar avatar-xxl user-prifile-avatar p-2 mb-4"%>
+      <% end %>
+      <h5><%= @organization.name %></h5>
+      <p class="text-primary">
+        <i class="fa-map-marker-alt fa mr-1"></i> Albino, Bg, Italy
+      </p>
+    </div>
+  <div class="col-md-9">
+    <div class="border-bottom-light py-4">
+      <h4>Gestisci <%= @organization.name %></h4>
+      <div class="d-flex">
+    <%= link_to "Modifica il gruppo", edit_organization_path(@organization), class: "mb-4 btn btn-outline-primary"   %>
+  </div>
+  </div>
+
+    <div class="border-bottom-light py-4">
+      <h4 class="mb-4">Gare inserite</h4>
+        <% if @organization.races.any? %>
+
+        <% else %>
+        <% race = Race.first %>
+          <div class="list-group shadow mb-5">
+            <div class="list-group-item list-group-item-action p-4">
+            <div class="row">
+              <div class="col-lg-4 p-3 mb-4 mb-lg-0">
+                <div class="d-flex align-items-center mb-3">
+                  <h2 class="h5 mb-0"><%= race.name %></h2>
+                </div>
+                <p class="text-primary">
+                  <i class="fa-map-marker-alt fa mr-1"></i> <%= race.location%>
+                 </p>
+              </div>
+
+              <div class="col-lg-8">
+                <div class="row">
+                  <div class="col-6 col-md-6   py-3 mb-3 mb-lg-0">
+                    <h6 class="label-small">Tipo</h6>
+                    <p class="text-sm font-weight-bold"><%= race.race_type %></p>
+                    <h6 class="label-small">Data </h6>
+                    <p class="text-sm font-weight-bold mb-0"> <%= l(race.date, format: :long) %></p>
+                  </div>
+                  <div class="col-3 col-md-6   py-3 mb-3 mb-lg-0">
+                    <h6 class="label-small">Distanza</h6>
+                    <p class="text-sm font-weight-bold"><%= race.length %> Km</p>
+                    <h6 class="label-small">Dislivello </h6>
+                    <p class="text-sm font-weight-bold mb-0"><%= race.elevation%>m d+</p>
+                  </div>
+
+                </div>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                <%= link_to "Vedi la gara", race_path(race), class: "mb-0 mr-3 btn btn-outline-primary btn-sm"   %>
+                <%= link_to "Modifica le informazioni", edit_race_path(race), class: "mb-0 mr-3 btn btn-outline-primary btn-sm"   %>
+                <%= link_to "Modifica prezzi e iscrizioni", race_race_prices_path(race), class: "mb-0 mr-3 btn btn-outline-primary btn-sm"   %>
+                <%= link_to "Galleria forotgrafica", race_race_photos_path(race), class: "mb-0 mr-3 btn btn-outline-primary btn-sm"   %>
+
+                </div>
+              </div>
+            </div>
+<!--             <p class="text-muted mb-2">Non hai ancora inserito gare</p>
+            <%#= link_to 'Aggiungi una corsa', new_race_path, class: " btn btn-outline-primary" %>
+ --> </div>
+</div>
+        <% end %>
+    <div class="border-bottom-light py-4">
+      <h4>Recensioni alle gare</h4>
+        <% if @organization.reviews.any? %>
+        <% else %>
+          <div class="d-flex align-items-center mb-5">
+            <p class="text-muted mb-0">Non ci sono recensioni alle tue gare</p>
+          </div>
+        <% end %>
+    </div>
+
+  </div>
+
+  </div>
+</div>
+
