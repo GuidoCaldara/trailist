@@ -1,14 +1,19 @@
 class OrganizationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
 
   def organizer_dashboard
     @organization = current_user.organization
+    authorize @organization
     @races = @organization.races
   end
 
   def add_your_group
+    authorize Organization.new
   end
+
   def new
     @organization = Organization.new
+    authorize @organization
   end
 
   def create

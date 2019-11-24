@@ -1,0 +1,9 @@
+var container = document.querySelector("#choose-redirection")
+
+
+
+<% if @user.errors.any? %>
+  container.innerHtml = "<%= j render 'complete_profile_form', user: @user %>"
+<% else %>
+  container.innerHTML = "<%= j render 'after_signup_options', username: @user.username%>"
+<% end %>

@@ -29,4 +29,5 @@ class Race < ApplicationRecord
       self.distance_type = "ultra"
     end
   end
+
 end

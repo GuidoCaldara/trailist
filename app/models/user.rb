@@ -4,5 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :reviews
+  #validates :username, presence: true, on: :update
   has_one :organization
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
 end

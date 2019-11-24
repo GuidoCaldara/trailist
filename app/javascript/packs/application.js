@@ -14,7 +14,10 @@ initAutocomplete()
 initCalendar()
 photoPreview()
 initFilterForm()
-initMapbox();
+ const showMap = document.getElementById('race-show-map');
+ const indexMap = document.getElementById('race-index-map');
+ showMap && initMapbox(showMap);
+ indexMap && initMapbox(indexMap);
 
 
   const addClass = (stars, target) =>{

@@ -1,0 +1,22 @@
+
+
+<%= simple_form_for user, url: save_profile_users_path, method: :patch, remote: true do |f| %>
+  <div class="row py-5 form-row">
+    <div class="col-md-4">
+      <div class="">
+        <p class="subtitle text-secondary">Benvenuto su XXXXX </p>
+      </div>
+      <h4>Completa il tuo profilo</h4>
+    </div>
+    <div class="col-md-8">
+      <% user.errors.messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+      <%= f.input :username, label: "Username", hint: "Scegli o conferma il tuo username" %>
+      <%= f.input :location, label: "Città di provenienza" %>
+    </div>
+  </div>
+  <div class="row py-5 d-flex justify-content-end">
+    <%= f.button :submit, 'Continua', class: "mr-0 btn btn-primary px-3" %>
+  </div>
+<% end %>

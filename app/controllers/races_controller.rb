@@ -1,10 +1,11 @@
 class RacesController < ApplicationController
   before_action :set_race, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show, :index ]
 
   def index
     @races = Race.all
     @races = @races.search_by_name(params[:name]) if params[:name].present?
-    @races = @races.near(params[:location]) if params[:location].present?
+    @races = @races.near(params[:location], 80) if params[:location].present?
     @races = @races.filter_by_type(params[:category]) if params[:category].present?
     @races = @races.filter_by_distance(params[:distance]) if params[:distance].present?
     if params[:dates].present?
@@ -13,7 +14,10 @@ class RacesController < ApplicationController
       @races = @races.filter_by_date(start_date, end_date )
     end
     @markers = @races.map do |race|
-      { lat: race.latitude, lng: race.longitude }
+      { lat: race.latitude,
+        lng: race.longitude,
+        infoWindow: render_to_string(partial: "race_info_window", locals: { race: race })
+      }
     end
     respond_to do |format|
       format.html { render 'index'}
@@ -22,27 +26,25 @@ class RacesController < ApplicationController
   end
 
   def show
-    @coordinates = [@race.latitude, @race.longitude]
+    authorize @race
+    @coordinates = [{ lat: @race.latitude, lng: @race.longitude}]
     @review = Review.new
   end
 
   def new
     @race = Race.new
+    authorize @race
   end
 
   def create
     @race = Race.new(race_params)
-    byebug
+    authorize @race
     @race.organization = current_user.organization
     if @race.save
       redirect_to race_race_prices_path(@race)
     else
       render 'new'
     end
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
   end
 
   def update_description
@@ -53,7 +55,6 @@ class RacesController < ApplicationController
       format.js
     end
   end
-
 
 
   def edit

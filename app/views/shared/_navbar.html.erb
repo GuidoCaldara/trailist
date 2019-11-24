@@ -17,11 +17,10 @@
       <li class="nav-item dropdown mr-3">
         <% if current_user.avatar.blank? %>
           <%= image_tag "runner-avatar", class: "d-block avatar p-2 dropdown-toggle", id:"navbarDropdown" , data: {toggle: "dropdown"}%>
-            <% else %>
-              <%= image_tag current_user.avatar ,class: "d-block avatar user-prifile-avatar p-2 "%>
-            <% end %>
+          <% else %>
+            <%= image_tag current_user.avatar ,class: "d-block avatar user-prifile-avatar p-2 "%>
+          <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <h6 class="dropdown-header font-weight-normal">Documentation</h6>
           <%= link_to  'Il tuo profilo', current_user, class:'dropdown-item' %>
           <% if current_user.organization %>
             <%= link_to  'Dashboard Organizzatore', organizer_dashboard_organizations_path, class:'dropdown-item' %>

@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
     @race = Race.find(params[:race_id])
     @review.user = current_user
     @review.race = @race
+    authorize @review
     if @review.save
       redirect_to @race
     else

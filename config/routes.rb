@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  get 'users/complete_profile'
   root "pages#home"
-  devise_for :users#, controllers: { registrations: "users/registrations" }
-  resources :users, only: [:show] do
+
+  devise_for :users, controllers: { registrations: "users/registrations" }
+  resources :users, only: [:show, :edit, :update] do
+    collection do
+      get :complete_profile
+      patch :save_profile
+    end
   end
 
   resources :organizations do

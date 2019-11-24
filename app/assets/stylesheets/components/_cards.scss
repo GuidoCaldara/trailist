@@ -47,3 +47,20 @@
   }
 }
 }
+
+
+.card-badge{
+  color: white;
+  &.ultra{
+    background-color: #fd1015
+  }
+  &.skyrace{
+    background-color: #55acf7
+  }
+  &.vertical{
+    background-color: #fb821a
+  }
+  &.trail{
+    background-color: #28ce14
+  }
+}

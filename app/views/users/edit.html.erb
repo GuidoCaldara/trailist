@@ -1,0 +1,25 @@
+<div class="container">
+  <%= simple_form_for @user do |f| %>
+  <div class="row py-5 form-row">
+    <div class="col-md-4">
+      <div class="">
+        <p class="subtitle text-secondary">Modifica il profilo</p>
+      </div>
+      <h4 class="mb-3">Inserisci le informazioni</h4>
+      <%= link_to "Cambia email o password", edit_user_registration_path, class: "mb-4 btn btn-outline-primary"   %>
+    </div>
+    <div class="col-md-8">
+      <% @user.errors.messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+      <%= f.input :username, label: "Username", hint: "Scegli o conferma il tuo username" %>
+      <%= f.input :location, label: "Città di provenienza", value:@user.location %>
+      <%= f.input :description, label: "Qualcosa su di te" %>
+    </div>
+  </div>
+  <div class="row py-5 d-flex justify-content-end">
+    <%= f.button :submit, 'Continua', class: "mr-0 btn btn-primary px-3" %>
+  </div>
+<% end %>
+
+</div>

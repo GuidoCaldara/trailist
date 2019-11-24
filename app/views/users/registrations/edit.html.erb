@@ -1,9 +1,23 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<div class="container">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+  <div class="row py-5 form-row">
+    <div class="col-md-4">
+      <div>
+      <div class="">
+        <p class="subtitle text-secondary">Modifica email o password</p>
+      </div>
+      <h4 class="mb-3">Inserisci le informazioni</h4>
+      <%= link_to "Torna al tuo profilo", user_path(current_user), class: "mb-4 btn btn-outline-primary" %>
 
-  <div class="form-inputs">
+      </div>
+
+      <%= link_to "Cancella il tuo account", registration_path(resource_name), class: "mb-4 btn btn-outline-primary", data: { confirm: "Are you sure?" }, method: :delete %>
+
+    </div>
+    <div class="col-md-8">
+      <% @user.errors.messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,15 +35,16 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="row py-5 d-flex justify-content-end">
+    <%= f.button :submit, 'Continua', class: "mr-0 btn btn-primary px-3" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+</div>

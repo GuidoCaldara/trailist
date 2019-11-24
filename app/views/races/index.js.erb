@@ -1,4 +1,30 @@
+function removeMarkers(){
+  const markers = document.querySelectorAll(".mapboxgl-marker")
+  markers.forEach(marker => marker.remove())
+}
+
+var fitMapToMarkers = (map, markers) => {
+  const bounds = new mapboxgl.LngLatBounds();
+  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  map.fitBounds(bounds, { padding: 70, maxZoom: 7, duration: 0 });
+};
+
+function updateMarkers(markers){
+  var markers = JSON.parse(markers)
+  markers.forEach((marker) => {
+    new mapboxgl.Marker()
+    .setLngLat([ marker.lng, marker.lat ])
+    .addTo(indexMap);
+});
+
+    //fitMapToMarkers(indexMap, markers);
+ };
+
+
 var container = document.querySelector(".races-display-container")
 var raceNumber = document.querySelector(".races-size")
 container.innerHTML = "<%= j render 'display_races', races: @races  %>"
 document.querySelector(".races-size").innerText = "<%= @races.size%>"
+var markers =  '<%= raw @markers.to_json  %>'
+removeMarkers()
+updateMarkers(markers)
