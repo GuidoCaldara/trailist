@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
 
+
+$body-font: 'Poppins', sans-serif;
+$headers-font: 'Poppins', sans-serif;
+
 @media (max-width: 1200px) {
   legend {
     font-size: calc(1.275rem + 0.3vw);
@@ -76,7 +80,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .text{
   &.small{
-        font-size: .875rem;
+    font-size: .875rem;
 
   };
   &.bold{
@@ -86,4 +90,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: #6d6d6d;
   };
 
+}
+
+.downcase{
+  text-transform: none !important
 }

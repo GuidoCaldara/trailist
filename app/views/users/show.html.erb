@@ -10,6 +10,11 @@
       <p class="text-primary">
         <i class="fa-map-marker-alt fa mr-1"></i> Albino, Bg, Italy
       </p>
+
+      <% if policy(@user).edit? %>
+        <%= link_to "Modifica il profilo", edit_user_path(@user) , class: "mb-4 ml-4 btn btn-outline-primary" %>
+      <% end %>
+
     </div>
   <div class="col-md-9">
     <div class="border-bottom-light py-4">
@@ -19,6 +24,9 @@
     <div class="border-bottom-light py-4">
       <h4>Recensioni</h4>
         <% if @user.reviews.any? %>
+          <% @user.reviews.order('created_at DESC').each do |review|%>
+            <%= render "reviews/preview_card" , review: review %>
+          <% end %>
         <% else %>
           <p class="text-muted mb-5"><%= @user.username %> Non ha ancora lasciato recensioni</p>
         <% end %>

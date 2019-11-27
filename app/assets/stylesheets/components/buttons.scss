@@ -1,10 +1,7 @@
-.btn-green{
-  background-color: $green;
+.btn-background-color{
+  background-color: $primary;
   color: white;
-  opacity: 0.8;
-  &:hover{
-    color: white;
-    background-color: #99ce2a;
-    //opacity: 1;
+  &:focus{
+    box-shadow: none
   }
 }

@@ -1,5 +1,6 @@
 class RacePhotosController < ApplicationController
 
+
   def index
     @race = Race.find(params[:race_id])
     @photos = @race.race_photos

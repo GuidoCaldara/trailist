@@ -23,6 +23,11 @@ const initCalendar = () => {
     "locale": Italian,
   })
 
+  flatpickr(`#home-date-field`, {
+    mode: "range",
+    "locale": Italian,
+  })
+
   flatpickr(`#race_period`, {
     mode: "range",
     "locale": Italian,

@@ -25,6 +25,6 @@ var container = document.querySelector(".races-display-container")
 var raceNumber = document.querySelector(".races-size")
 container.innerHTML = "<%= j render 'display_races', races: @races  %>"
 document.querySelector(".races-size").innerText = "<%= @races.size%>"
-var markers =  '<%= raw @markers.to_json  %>'
+var markers =  '<%= j raw @markers.to_json  %>'
 removeMarkers()
 updateMarkers(markers)

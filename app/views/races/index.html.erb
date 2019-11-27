@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="d-flex mt-4">
   <h2 class="mb-4">Trova la tua prossima Gara</h2>
-  <button type="button" data-toggle="collapse" data-target="#filterForom" aria-expanded="false" aria-controls="filterForom" class="mb-4 ml-4 btn btn-outline-primary" >Filtri di ricerca</button>
+  <button id="filter-form-btn" type="button" data-toggle="collapse" data-target="#filterForom" aria-expanded="false" aria-controls="filterForom" class="mb-4 ml-4 btn btn-outline-primary" >Filtri di ricerca</button>
 
   </div>
   <div class="collapse" id="filterForom">
@@ -66,7 +66,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8">
-      <h5 class="mb-2"><span class="races-size"><%= @races.size %></span> risultati</h5>
+      <div class="d-flex align-items-baseline">
+        <h5 class="mb-2"><span class="races-size"><%= @races.size%></span></h5>
+        <p class="ml-1 text-muted"> risultati</p>
+      </div>
       <div class="row races-display-container">
         <%= render 'display_races', races: @races  %>
       </div>
@@ -84,10 +87,10 @@
   </div>
 
 </div>
-
-
 <script>
-
+  const btn = document.querySelector("#filter-form-btn")
+  btn.addEventListener("click", ()=>{
+    btn.classList.toggle("btn-background-color")
+  })
 </script>
-
 

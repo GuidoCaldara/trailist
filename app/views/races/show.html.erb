@@ -63,7 +63,12 @@
 <% else %>
   <h5 class="mb-4"><%= @race.name %> non ha ancora recensioni.</h5>
 <% end %>
-<button type="button" data-toggle="modal" data-target="#newReviewForm" aria-expanded="false" aria-controls="newReviewForm" class="mb-4 ml-4 btn btn-outline-primary" >Lascia un recensione</button>
+<% unless user_signed_in? %>
+  <%= link_to "Lascia un recenssione", new_user_session_path , class: "mb-4 ml-4 btn btn-outline-primary" %>
+<% end %>
+<% if policy(Review.new(race: @race)).create? %>
+  <button type="button" data-toggle="modal" data-target="#newReviewForm" aria-expanded="false" aria-controls="newReviewForm" class="mb-4 ml-4 btn btn-outline-primary" >Lascia un recensione</button>
+<% end %>
 </div>
 
 

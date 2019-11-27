@@ -4,6 +4,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    record == user
+  end
+
   def complete_profile?
     user.username.nil?
   end

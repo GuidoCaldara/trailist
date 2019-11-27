@@ -6,7 +6,9 @@ class RacesController < ApplicationController
     @races = Race.all
     @races = @races.search_by_name(params[:name]) if params[:name].present?
     @races = @races.near(params[:location], 80) if params[:location].present?
-    @races = @races.filter_by_type(params[:category]) if params[:category].present?
+    if params[:category].present? && !params[:category].include?("[")
+      @races = @races.filter_by_type(params[:category])
+    end
     @races = @races.filter_by_distance(params[:distance]) if params[:distance].present?
     if params[:dates].present?
       start_date = Date.parse(params[:dates].split(' ')[0])

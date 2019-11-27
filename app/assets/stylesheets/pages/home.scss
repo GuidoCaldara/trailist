@@ -1,0 +1,147 @@
+.home-banner{
+  min-height: calc(100vh - 120px);
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('bannerrun.jpg');
+  background-size: cover;
+  background-position-y: inherit;
+  position: relative
+}
+
+
+
+
+.home-search-container{
+  h1{
+    color: white
+  }
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-search-box{
+  overflow: visible;
+  background: #fff;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+  display: flex;
+  min-height: 55px;
+  width: 80%;
+  right: 10%;
+  flex-wrap: wrap;
+  border-radius: 50px;
+  form{
+    justify-content: space-around;
+
+    display: flex;
+  }
+}
+
+#home-search-form{
+  width:100%;
+  .form-group{
+    margin-bottom: 0px;
+    padding: 7px 0px;
+    input{
+      border: none;
+      height: 100%;
+      &:focus{
+        border: none;
+        outline: none;
+      }
+    }
+
+    #home-location-field, #home-date-field{
+      border-right: 1px solid #b5b5b5;
+      width: 100%;
+      border-radius: 0px
+    }
+  }
+}
+
+
+.home-location-box{
+  .algolia-places{
+    height: 100%
+  }
+}
+
+.bootstrap-select.race-type-select:focus{
+  outline: none;
+}
+
+
+.dropdown.bootstrap-select{
+  width: 100% !important;
+  button{
+    background-color: white;
+    border: none;
+    box-shadow: none !important;
+    &:focus{
+      outline: none !important;
+      outline-offset: none;
+      box-shadow: none !important;
+    }
+    &:active{
+      background-color: white !important;
+    }
+  }
+
+}
+
+
+.btn-ligth:focus{
+
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active, .show > .btn-light.dropdown-toggle {
+    //color: #212529;
+    background-color: white;
+    border: none;
+    box-shadow: none !important;
+  }
+
+
+
+  .search-btn-home{
+    border-radius: 35px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 80%;
+    width: 100%;
+
+  }
+
+
+  @media only screen and (max-width: 991px) {
+  #home-location-field, #home-date-field, .btn-column, .type-col-home{
+    padding-left: 10px !important;
+  }
+  #home-location-field, #home-date-field{
+    padding-right: 30px;
+    border-right:none !important;
+    border-bottom: 1px solid #ced4da !important;
+  }
+  #home-date-field{
+    border-right:none !important;
+    border-bottom: 1px solid #ced4da !important;
+  }
+  .home-search-box{
+    border-radius: 16px;
+    padding: 24px 16px !important;
+    border-bottom: 1px solid #ced4da !important;
+  }
+}
+
+
+.organizer-container{
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('bannerrun.jpg');
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}

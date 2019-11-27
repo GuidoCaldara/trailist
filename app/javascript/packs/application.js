@@ -4,12 +4,15 @@ require("@rails/activestorage").start()
 require("channels")
 import 'jquery'
 import 'bootstrap'
+import selectpicker from "bootstrap-select"
+
+
 import { initAutocomplete } from '../plugins/init_autocomplete'
 import { initCalendar } from '../plugins/init_flatpickr'
 import { photoPreview } from '../dom/photo_uploader';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initFilterForm } from '../dom/filter-form';
-
+$('.race-type-select').selectpicker();
 initAutocomplete()
 initCalendar()
 photoPreview()
@@ -18,7 +21,6 @@ initFilterForm()
  const indexMap = document.getElementById('race-index-map');
  showMap && initMapbox(showMap);
  indexMap && initMapbox(indexMap);
-
 
   const addClass = (stars, target) =>{
     console.log("Adding")
