@@ -8,6 +8,9 @@
       <li class="nav-item active">
         <%= link_to "Lista gare", races_path, class:"dropdown-item py-1 px-3" %>
       </li>
+      <li class="nav-item active">
+        <%= link_to "Accedi", new_user_session_path, class:"dropdown-item py-1 px-3" %>
+      </li>
 
     <% unless user_signed_in? %>
       <li class="nav-item">

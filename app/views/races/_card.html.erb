@@ -11,7 +11,7 @@
         <div class="w-100">
           <div class="d-flex justify-content-between">
             <span class="mr-2 text small text-muted mb-0">
-            <i class="fa-map-marker-alt fa mr-1"></i> <%= race.location %>
+            <i class="fa-map-marker-alt fa mr-1"></i> <%= race.location.truncate(24) %>
           </span>
 
                       <p class="text-muted text small mb-1"><%= l(race.date, format: :long) %></p>
