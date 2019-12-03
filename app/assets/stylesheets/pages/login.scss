@@ -1,0 +1,22 @@
+.col-session-new{
+  div{
+    background-size: cover;
+    background-position: initial;
+  }
+}
+
+
+
+.login-btn{
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.login-container{
+  height: calc(100vh - 60px);
+  .row{
+    height: 100%
+  }
+}
+

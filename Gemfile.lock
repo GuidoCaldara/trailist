@@ -104,6 +104,8 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
+    email_validator (2.0.1)
+      activemodel
     erubi (1.8.0)
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
@@ -267,6 +269,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
+    validate_url (1.0.8)
+      activemodel (>= 3.0.0)
+      public_suffix
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.1)
@@ -300,6 +305,7 @@ DEPENDENCIES
   cloudinary (~> 1.9.1)
   devise
   dotenv-rails
+  email_validator
   faker!
   font-awesome-rails
   friendly_id (~> 5.2.4)
@@ -322,6 +328,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
+  validate_url
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)

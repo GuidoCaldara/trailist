@@ -69,19 +69,20 @@
 
 
 <div class="container show-review-container py-5">
-<p class="subtitle text-sm text-primary">Recensioni</p>
-<div class="d-flex align-items-center mb-5">
-  <% if @race.reviews.any? %>
-  <h5 class="mb-4">Leggi le recensioni della corsa</h5>
-<% else %>
-  <h5 class="mb-4"><%= @race.name %> non ha ancora recensioni.</h5>
-<% end %>
-<% unless user_signed_in? %>
-  <%= link_to "Lascia un recenssione", new_user_session_path , class: "mb-4 ml-4 btn btn-outline-light" %>
-<% end %>
-<% if policy(Review.new(race: @race)).create? %>
-  <button type="button" data-toggle="modal" data-target="#newReviewForm" aria-expanded="false" aria-controls="newReviewForm" class="mb-4 ml-4 btn btn-outline-light" >Lascia un recensione</button>
-<% end %>
+  <p class="subtitle text-sm text-primary">Recensioni</p>
+  <div class="d-flex align-items-center mb-5">
+    <% if @race.reviews.any? %>
+      <h5 class="mb-4">Leggi le recensioni della corsa</h5>
+    <% else %>
+      <h5 class="mb-4"><%= @race.name %> non ha ancora recensioni.</h5>
+    <% end %>
+    <% unless user_signed_in? %>
+      <%= link_to "Lascia un recenssione", new_user_session_path , class: "mb-4 ml-4 btn btn-outline-light" %>
+      <% end %>
+    <% if policy(Review.new(race: @race)).create? %>
+      <button type="button" data-toggle="modal" data-target="#newReviewForm" aria-expanded="false" aria-controls="newReviewForm" class="mb-4 ml-4 btn btn-outline-light" >Lascia un recensione</button>
+    <% end %>
+  </div>
 </div>
 
 

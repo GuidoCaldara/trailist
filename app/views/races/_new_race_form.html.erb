@@ -8,7 +8,7 @@
       <%= f.input :race_type, collection: ["Trail", "Skyrunning", "Ultratrail"], label: "Tipo di gara" %>
       <div class="d-flex justify-content-between">
         <%= f.input :length, label: "Distanza in Km", input_html: { min: '0', max: '400', step: '1' }, wrapper_html: {class: "w-50" }%>
-        <%= f.input :elevation, label: "Dislivello positivo in m", input_html: { min: '0', max: '30000', step: '50' }, wrapper_html: {class: "w-50 ml-3" }%>
+        <%= f.input :elevation, label: "Dislivello positivo in m", input_html: { min: '0', max: '30000', step: '10' }, wrapper_html: {class: "w-50 ml-3" }%>
       </div>
     </div>
   </div>
@@ -44,3 +44,5 @@
     <%= f.button :submit, 'Continua', class: "mr-0 btn btn-primary px-3" %>
   </div>
 <% end %>
+
+

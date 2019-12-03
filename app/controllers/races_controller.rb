@@ -44,23 +44,29 @@ class RacesController < ApplicationController
     authorize @race
     @race.organization = current_user.organization
     if @race.save
+      flash[:success] = "La gara è stata inserita correttamente! Ora puoi aggiungere il prezzo dell'iscrizione e le fotografie!"
       redirect_to race_race_prices_path(@race)
     else
       render 'new'
     end
   end
 
-  def update_description
-    @race = Race.find(params[:id])
-    @race.update = (race_params)
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
 
 
   def edit
+     authorize @race
+  end
+
+  def update
+    @race = Race.friendly.find(params[:id])
+    authorize @race
+    if @race.update(race_params)
+      flash[:success] = "La gara è stata aggiornata correttamente!"
+      redirect_to @race
+    else
+      render 'new'
+    end
+
   end
 
   private

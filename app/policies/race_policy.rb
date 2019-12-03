@@ -9,7 +9,7 @@ class RacePolicy < ApplicationPolicy
   end
 
   def create?
-    user.organization
+    user.organization == record.organization
   end
 
   def update?

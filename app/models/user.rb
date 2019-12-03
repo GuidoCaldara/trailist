@@ -7,7 +7,8 @@ class User < ApplicationRecord
   mount_uploader :avatar, PhotoUploader
   after_create :send_welcome_email
   has_many :reviews, dependent: :destroy
-  #validates :username, presence: true, on: :update
+  validates :username, uniqueness: true
+  validates :username, :location, presence: true, on: :update
   has_one :organization, dependent: :destroy
   geocoded_by :location
   after_validation :geocode, if: :location_changed?

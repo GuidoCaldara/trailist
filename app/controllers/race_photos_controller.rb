@@ -1,15 +1,14 @@
 class RacePhotosController < ApplicationController
 
-
   def index
-    @race = Race.find(params[:race_id])
+    @race = Race.friendly.find(params[:race_id])
     @photos = @race.race_photos
     @photo = RacePhoto.new(race: @race)
     authorize @photo
   end
 
   def create
-    @race = Race.find(params[:race_id])
+    @race = Race.friendly.find(params[:race_id])
     params[:race_photo][:picture].each do |photo|
       @photo = RacePhoto.new(picture: photo, race: @race)
       authorize @photo

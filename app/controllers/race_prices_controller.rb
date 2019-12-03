@@ -1,12 +1,12 @@
 class RacePricesController < ApplicationController
   def index
-    @race = Race.find(params[:race_id])
+    @race = Race.friendly.find(params[:race_id])
     @prices = @race.race_prices
     @price = RacePrice.new(race: @race)
   end
 
   def create
-    @race = Race.find(params[:race_id])
+    @race = Race.friendly.find(params[:race_id])
     @price = RacePrice.new(race: @race, price: params[:race_price][:price])
     @price.start_date = params[:race_price][:start_date].split(" ")[0]
     @price.end_date = params[:race_price][:start_date].split(" ")[2]

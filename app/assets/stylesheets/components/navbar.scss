@@ -1,9 +1,9 @@
 
 nav{
  background-color: white;
-     box-shadow: 0 0 1rem rgba(0,0,0,0.15) !important;
-color:  rgba(0,0,0,0.5);
-
+ box-shadow: 0 0 1rem rgba(0,0,0,0.15) !important;
+ color:  rgba(0,0,0,0.5);
+ height: 65px
  //border-bottom: 2px solid $primary
 }
 
@@ -59,7 +59,8 @@ color:  rgba(0,0,0,0.5);
     top: 0px;
     z-index: 500;
     div>ul>li>a{
-      color: white !important
+      color: white !important;
+      font-family: poppins
     }
 
     &.black{

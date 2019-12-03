@@ -1,6 +1,7 @@
+
 <div class="home-banner mb-4" style="">
   <div class="home-search-container">
-    <h1>Trova la tua prossima gara</h1>
+    <h1 class="mx-auto">Trova la tua prossima gara</h1>
       <div class="home-search-box mt-5 pl-3 pr-0 py-0">
         <%=  form_with(url: "/races", method: "get",id:"home-search-form", local: true) do %>
           <div class="row w-100 align-items-center">
@@ -108,9 +109,11 @@
 
 <script>
   const nav = document.querySelector('nav')
-  const height = document.querySelector(".home-search-box").offsetHeight
-  const limit = height - nav.offsetHeight
+  const height = document.querySelector(".home-search-box").offsetTop
+  const limit = height - nav.offsetHeight + 100
   window.addEventListener("scroll", () =>{
+    console.log(document.querySelector(".home-search-box").offsetTop)
+    console.log(window.pageYOffset)
     if ( window.pageYOffset < limit ){
       console.log("j")
       nav.classList.remove('black')

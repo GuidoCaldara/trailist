@@ -25,6 +25,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'omniauth-facebook'
 gem 'friendly_id', '~> 5.2.4'
 gem 'letter_opener', group: :development
+gem 'email_validator'
+gem "validate_url"
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
