@@ -3,7 +3,7 @@ class RacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index ]
 
   def index
-    @races = Race.all
+    @races = Race.geocoded
     @races = @races.search_by_name(params[:name]) if params[:name].present?
     @races = @races.near(params[:location], 80) if params[:location].present?
     if params[:category].present? && !params[:category].include?("[")
@@ -30,6 +30,7 @@ class RacesController < ApplicationController
   def show
     authorize @race
     @coordinates = [{ lat: @race.latitude, lng: @race.longitude}]
+    @reviews = @race.reviews.order(created_at: :desc)
     @review = Review.new
   end
 
@@ -65,7 +66,7 @@ class RacesController < ApplicationController
   private
 
   def set_race
-    @race = Race.find(params[:id])
+    @race = Race.friendly.find(params[:id])
   end
 
   def race_params

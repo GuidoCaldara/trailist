@@ -1,2 +1,15 @@
-<h1>Races#edit</h1>
-<p>Find me in app/views/races/edit.html.erb</p>
+
+
+<div class="container py-5">
+  <p class="subtitle text-primary">MODIFICA LA GARA</p>
+  <div class="d-flex justify-content-between pr-5">
+    <h2><span id="race_step_description">Informazioni di Base</span></h2>
+    <%= link_to "Torna alla pagina precedente", organizer_dashboard_organizations_path, class: "mb-4 btn btn-outline-light"   %>
+
+  </div>
+</div>
+
+
+<div class="new-form-container container py-5">
+  <%= render 'new_race_form', race: @race %>
+<div>

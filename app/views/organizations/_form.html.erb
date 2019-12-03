@@ -14,8 +14,9 @@
       <h4>Contatti</h4>
     </div>
     <div class="col-md-8">
-      <%= f.input :email, label: "Indirizzo email", input_html:{ value: current_user.email} %>
-      <%= f.input :phone, label:"Contatto telefonico" %>
+      <%= f.input :email, label: "Indirizzo email", input_html:{ value: current_user.email}, hint: "L'indirizzo email resterà nascosto. Gli utenti potranno inviarti messaggi, ma avranno accesso all'indirizzo email solo in caso tu decida di rispondere" %>
+      <%= f.input :phone, label:"Contatto telefonico", hint:"Non obbligatorio"%>
+      <%= f.input :website, label:"Sito internet" %>
     </div>
   </div>
   <div class="row py-5 form-row top">

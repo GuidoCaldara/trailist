@@ -15,7 +15,7 @@
     <div class="border-bottom-light py-4">
       <h4>Gestisci <%= @organization.name %></h4>
       <div class="d-flex">
-    <%= link_to "Modifica il gruppo", edit_organization_path(@organization), class: "mb-4 btn btn-outline-primary"   %>
+    <%= link_to "Modifica il gruppo", edit_organization_path(@organization), class: "mb-4 btn btn-outline-light"   %>
   </div>
   </div>
 
@@ -29,7 +29,7 @@
           <div class="d-flex align-items-center">
             <p class="text-muted mb-2">Non hai ancora inserito gare</p>
           </div>
-          <%= link_to "Aggiungi una gara", new_race_path, class: "mb-4 btn btn-outline-primary"   %>
+          <%= link_to "Aggiungi una gara", new_race_path, class: "mb-4 btn btn-outline-light"   %>
         <% end %>
     </div>
 

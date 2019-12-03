@@ -113,6 +113,12 @@ Devise.setup do |config|
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 11
 
+  config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
+    scope: 'email',
+    info_fields: 'email, first_name, last_name',
+    image_size: {width: 400, height: 400},  # 50x50, guaranteed ratio
+    secure_image_url: true
+
   # Set up a pepper to generate the hashed password.
   # config.pepper = 'cecbe9d203a1745ac70e53b6c1f8a4b6226f0411cad5dc3f7ed668a6efeea7283d8a9889b2506d3b56ab13773f59c257b98539e17c0e8d83e1a34eea42df4a2b'
 

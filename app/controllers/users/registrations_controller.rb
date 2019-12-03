@@ -52,7 +52,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
    def after_sign_up_path_for(resource)
-    complete_profile_users_path
+    if resource.username
+      races_path
+    else
+      complete_profile_users_path
+    end
   end
 
 

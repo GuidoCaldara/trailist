@@ -42,4 +42,14 @@ class ApplicationController < ActionController::Base
     store_location_for(:user, request.fullpath)
   end
 
+
+  def after_sign_in_path_for(resource)
+    races_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    races_path
+  end
+
+
 end

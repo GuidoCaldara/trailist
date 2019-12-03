@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' unless params[:controller] == 'pages'%>
+    <%= render 'shared/navbar'%>
+    <%= render 'shared/alerts'%>
     <%= yield %>
 
     <%= javascript_pack_tag  'application' %>

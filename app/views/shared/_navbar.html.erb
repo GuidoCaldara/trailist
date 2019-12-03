@@ -1,5 +1,5 @@
-<nav class="py-3 navbar navbar-expand-md navbar-light">
-  <a class="navbar-brand" href="/">Navbar</a>
+<nav class="py-1 navbar navbar-expand-md navbar-light <%= 'home-nav'if params[:controller] == 'pages'%>">
+  <a class="navbar-brand" href="/"><%= image_tag 'logo-trail.png', height: 45%></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,12 +8,13 @@
       <li class="nav-item active">
         <%= link_to "Lista gare", races_path, class:"dropdown-item py-1 px-3" %>
       </li>
-      <li class="nav-item active">
-        <%= link_to "Accedi", new_user_session_path, class:"dropdown-item py-1 px-3" %>
-      </li>
 
     <% unless user_signed_in? %>
       <li class="nav-item">
+      <li class="nav-item active">
+        <%= link_to "Accedi", new_user_session_path, class:"dropdown-item py-1 px-3" %>
+      </li>
+      <li class="nav-item active">
         <%= link_to 'Sei un organizzatore?', new_user_registration_path, class: 'nav-link' %>
       </li>
     <% else %>
@@ -34,11 +35,9 @@
         </li>
 
       <li class="nav-item ">
-        <% if current_user.avatar.blank? %>
-          <%= image_tag "runner-avatar", class: "d-block avatar p-2 dropdown-toggle", id:"navbarDropdown" , data: {toggle: "dropdown"}%>
-          <% else %>
-            <%= image_tag current_user.avatar ,class: "d-block avatar user-prifile-avatar p-2 "%>
-          <% end %>
+        <%# if current_user.avatar.blank? %>
+            <%= image_tag current_user.profile_picture ,class: "d-block avatar user-prifile-avatar p-2 "%>
+          <%# end %>
       </li>
     <% end %>
 

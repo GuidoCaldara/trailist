@@ -1,4 +1,4 @@
-<div class="home-banner" style="">
+<div class="home-banner mb-4" style="">
   <div class="home-search-container">
     <h1>Trova la tua prossima gara</h1>
       <div class="home-search-box mt-5 pl-3 pr-0 py-0">
@@ -33,7 +33,7 @@
      </div>
   </div>
 </div>
-<div class="container py-5">
+<!-- <div class="container py-5">
   <div class="text-center pb-lg-4">
     <p class="subtitle text-secondary">One-of-a-kind vacation rentals </p>
     <h2 class="mb-5">Booking with us is easy</h2>
@@ -47,7 +47,7 @@
           </svg>
         </div>
         <h3 class="h5">Sfoglia il calendario</h3>
-        <p class="text-muted">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed in</p>
+        <p class="text-muted"></p>
       </div>
     </div>
     <div class="col-lg-4 mb-3 mb-lg-0 text-center">
@@ -58,7 +58,7 @@
           </svg>
         </div>
         <h3 class="h5">Condividi le tue esperienze</h3>
-        <p class="text-muted">The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pit</p>
+        <p class="text-muted"></p>
       </div>
     </div>
     <div class="col-lg-4 mb-3 mb-lg-0 text-center">
@@ -69,12 +69,12 @@
           </svg>
         </div>
         <h3 class="h5">Trova la tua prossima corsa</h3>
-        <p class="text-muted">His room, a proper human room although a little too small, lay peacefully between its four familiar </p>
+        <p class="text-muted"></p>
       </div>
     </div>
   </div>
 </div>
-<div class="container py-4">
+ --><div class="container py-5">
   <div class="row">
       <% @races.each do |race|%>
         <div class="col-md-4 mb-4">
@@ -83,7 +83,7 @@
       <% end %>
   </div>
   <div class="w-100 d-flex align-items-center py-4">
-    <%= link_to "Sfoglia il calendario",races_path, class: "mx-auto mb-4 btn btn-outline-primary" %>
+    <%= link_to "Sfoglia il calendario",races_path, class: "mx-auto mb-4 btn btn-outline-light" %>
   </div>
 
 </div>
@@ -104,3 +104,21 @@
   </div>
 </div>
 <%= render 'shared/footer' %>
+
+
+<script>
+  const nav = document.querySelector('nav')
+  const height = document.querySelector(".home-search-box").offsetHeight
+  const limit = height - nav.offsetHeight
+  window.addEventListener("scroll", () =>{
+    if ( window.pageYOffset < limit ){
+      console.log("j")
+      nav.classList.remove('black')
+    } else{
+            console.log("k")
+
+      nav.classList.add('black')
+    }
+
+  })
+</script>

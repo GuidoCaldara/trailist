@@ -8,7 +8,7 @@
   <div class="carousel-inner">
    <% race.race_photos.each_with_index do |photo, index| %>
     <div class="carousel-item <%= 'active' if index.zero? %>">
-      <%= cl_image_tag photo.picture, class: "carousel-race-img d-block w-100"%>
+      <%= cl_image_tag photo.picture.url(:gallery), class: "d-block w-100"%>
     </div>
     <% end %>
   </div>

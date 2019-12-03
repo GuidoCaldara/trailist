@@ -5,3 +5,24 @@
     box-shadow: none
   }
 }
+
+
+.btn-outline-light{
+  color: #808080 !important;
+  border: 1px solid #808080 !important;
+
+
+  &:hover{
+    border: 1px solid #484848 !important;
+    background-color: #F7F7F7 !important
+  }
+}
+
+
+.btn-secondary.btn-social{
+  color: white !important;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

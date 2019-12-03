@@ -8,4 +8,9 @@ class PhotoUploader < CarrierWave::Uploader::Base
   version :thumnail do
     resize_to_fit 1024, 1024
   end
+
+  version :gallery do
+    resize_to_fit 1200, 900
+  end
+
 end

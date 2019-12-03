@@ -6,11 +6,22 @@
       </p>
       <h1><%= @race.name %></h1>
       <p class="text-muted text-uppercase mb-4"> <%= l(@race.date, format: :long) %> - PARTENZA ORE <%= @race.departure_time.strftime("%H:%M") %></p>
-      <ul class="list-inline text-sm mb-4">
-        <li class="list-inline-item mr-3"><i class="fa fa-users mr-1 text-secondary"></i> <%= @race.race_type %></li>
-        <li class="list-inline-item mr-3"><i class="fa fa-door-open mr-1 text-secondary"></i> <%= @race.length %>Km</li>
-        <li class="list-inline-item mr-3"><i class="fa fa-bed mr-1 text-secondary"></i> <%= @race.elevation %>m d+</li>
-      </ul>
+      <div class="d-flex">
+          <div class="d-flex mr-2 align-items-center">
+            <%= image_tag 'race-type-icon.png', class: "card-icon mr-1" %>
+            <p class="mb-0  mr-3"><%= @race.race_type %> </p>
+          </div>
+        <div class="d-flex mr-2 align-items-center">
+          <%= image_tag 'distance-icon-blue.png', class: "card-icon mr-1" %>
+          <p class="mb-0  mr-3"><%= @race.length %> km  </p>
+        </div>
+        <div class="d-flex mr-2 align-items-center">
+          <%= image_tag 'elevation-icon-blue.png', class: "card-icon mr-1" %>
+          <p class="mb-0  mr-3"><%= @race.elevation %> d+  </p>
+        </div>
+      </div>
+
+
 
       <h6 class="mt-4 mb-2">La gara</h6>
       <p class="text-muted font-weight-light">
@@ -18,7 +29,7 @@
       </p>
       <h6 class="mt-4 mb-2">L'organizzatore</h6>
       <p class="text-muted font-weight-light">
-        <%= @race.organization.name %>
+        <%= link_to @race.organization.name, @race.organization  %>
       </p>
       <h6 class="mt-4 mb-2">Iscrizioni e prezzi</h6>
       <ul>
@@ -32,7 +43,9 @@
       </p>
     </div>
     <div class="col-md-6">
-      <%= render 'races/carousel', race: @race %>
+      <% if @race.race_photos.any? %>
+        <%= render 'races/carousel', race: @race %>
+      <% end %>
        <div
         id="race-show-map"
         style="width: 100%; height: 300px"
@@ -64,10 +77,10 @@
   <h5 class="mb-4"><%= @race.name %> non ha ancora recensioni.</h5>
 <% end %>
 <% unless user_signed_in? %>
-  <%= link_to "Lascia un recenssione", new_user_session_path , class: "mb-4 ml-4 btn btn-outline-primary" %>
+  <%= link_to "Lascia un recenssione", new_user_session_path , class: "mb-4 ml-4 btn btn-outline-light" %>
 <% end %>
 <% if policy(Review.new(race: @race)).create? %>
-  <button type="button" data-toggle="modal" data-target="#newReviewForm" aria-expanded="false" aria-controls="newReviewForm" class="mb-4 ml-4 btn btn-outline-primary" >Lascia un recensione</button>
+  <button type="button" data-toggle="modal" data-target="#newReviewForm" aria-expanded="false" aria-controls="newReviewForm" class="mb-4 ml-4 btn btn-outline-light" >Lascia un recensione</button>
 <% end %>
 </div>
 
@@ -113,7 +126,7 @@
 
 
   <div class="review-container">
-    <% @race.reviews.each do |review| %>
+    <% @reviews.each do |review| %>
       <%= render 'reviews/show', review: review %>
     <% end %>
   </div>

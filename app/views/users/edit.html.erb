@@ -6,7 +6,7 @@
         <p class="subtitle text-secondary">Modifica il profilo</p>
       </div>
       <h4 class="mb-3">Inserisci le informazioni</h4>
-      <%= link_to "Cambia email o password", edit_user_registration_path, class: "mb-4 btn btn-outline-primary"   %>
+      <%= link_to "Cambia email o password", edit_user_registration_path, class: "mb-4 btn btn-outline-light"   %>
     </div>
     <div class="col-md-8">
       <% @user.errors.messages.each do |error| %>
@@ -15,6 +15,10 @@
       <%= f.input :username, label: "Username", hint: "Scegli o conferma il tuo username" %>
       <%= f.input :location, label: "Città di provenienza", value:@user.location %>
       <%= f.input :description, label: "Qualcosa su di te" %>
+      <div class="d-flex">
+        <%= image_tag @user.profile_picture, class: "mr-5 d-block avatar avatar-xl" %>
+        <%= f.input :avatar, label: "Cambia l'immagine del profilo" %>
+      </div>
     </div>
   </div>
   <div class="row py-5 d-flex justify-content-end">

@@ -12,7 +12,7 @@
       <% user.errors.messages.each do |error| %>
         <p><%= error %></p>
       <% end %>
-      <%= f.input :username, label: "Username", hint: "Scegli o conferma il tuo username" %>
+      <%= f.input :username, label: "Username", hint: "Scegli o conferma il tuo username", input_html: {value: "#{user.first_name ? user.first_name.downcase + user.last_name[0] : ''}"}%>
       <%= f.input :location, label: "Città di provenienza" %>
     </div>
   </div>

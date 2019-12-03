@@ -3,9 +3,9 @@
 </div>
 
 <div class="container py-5">
-  <p class="subtitle text-primary">FOTO DELLA CORSA</p>
+  <p class="subtitle text-primary">Galleria forografica</p>
   <div class="d-flex justify-content-between pr-5">
-    <h2><span id="race_step_description">Aggiungi fotografie</span></h2>
+    <h2><span id="race_step_description">Aggiungi foto della corsa</span></h2>
     <h2 class="text-muted">Step <span id="race_step">3</span></h2>
   </div>
 </div>
@@ -14,8 +14,7 @@
 <div class="new-form-container container py-5">
   <div class="row py-5 form-row top">
     <div class="col-md-4">
-      <h4>Descrizione e Percorso</h4>
-      <p class="text-muted small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, sint! Accusamus delectus fuga, distinctio odio quisquam eveniet ipsa labore doloremque, tenetur voluptatum numquam.</p>
+      <h4>Scegli le immagini</h4>
       <%= render 'form', race: @race, photo: @photo %>
       <div id="preview"></div>
 
@@ -24,7 +23,7 @@
       <div class="row">
         <% @race.race_photos.each do |photo|%>
           <div class="col-md-4 my-1 px-1">
-            <div class="photo-gallery-card" style="background-image: url('<%= cl_image_path photo.picture %>')">
+            <div class="photo-gallery-card" style="background-image: url('<%= cl_image_path photo.picture.url(:thumnail) %>')">
             <%= link_to race_photo_path(photo), method: :delete, data: {confirm: 'Sei sicuro di voler rimuovere l\'immagine?'} do  %>
               <i class="fas fa-trash"></i>
              <% end %>
@@ -39,7 +38,7 @@
 
     </div>
     <div class="row py-5 d-flex justify-content-end">
-    <%= link_to 'La tua Bacheca', race_path(@race), class: "mr-3 btn btn-primary px-3" %>
+    <%= link_to 'La tua Bacheca', organizer_dashboard_organizations_path, class: "mr-3 btn btn-primary px-3" %>
     <%= link_to 'Vedi la Gara', race_path(@race), class: "mr-0 btn btn-primary px-3" %>
   </div>
 

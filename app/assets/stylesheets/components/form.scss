@@ -35,9 +35,9 @@ form {
     transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
 
     &:focus {
-      border-color: white;
       outline: none;
       box-shadow: none;
+      border: 1px solid #ced4da;
     }
    }
 }

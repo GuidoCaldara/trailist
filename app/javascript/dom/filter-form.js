@@ -7,7 +7,7 @@
    const buttons = document.querySelectorAll(".race-type-selector")
    buttons.forEach((btn) =>{
       btn.addEventListener("click", (e) =>{
-        e.currentTarget.classList.toggle("btn-outline-primary")
+        e.currentTarget.classList.toggle("btn-outline-light")
         e.currentTarget.classList.toggle("btn-primary")
       })
    })

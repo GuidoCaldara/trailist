@@ -7,12 +7,12 @@
         <%= image_tag @user.avatar ,class: "d-block avatar avatar-xxl user-prifile-avatar p-2 mb-4"%>
       <% end %>
       <h5><%= @user.username %></h5>
-      <p class="text-primary">
+      <p class="text-secondary">
         <i class="fa-map-marker-alt fa mr-1"></i> Albino, Bg, Italy
       </p>
 
       <% if policy(@user).edit? %>
-        <%= link_to "Modifica il profilo", edit_user_path(@user) , class: "mb-4 ml-4 btn btn-outline-primary" %>
+        <%= link_to "Modifica il profilo", edit_user_path(@user) , class: "mb-4 ml-4 btn btn-outline-light" %>
       <% end %>
 
     </div>

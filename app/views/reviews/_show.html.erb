@@ -1,25 +1,25 @@
 <div class="review-card d-block d-sm-flex review py-3 mt-4">
   <div class="text-md-center mr-4 mr-xl-5">
-    <%= image_tag "runner-avatar.png" ,class: "d-block avatar avatar-xl p-2 mb-2"%>
-    <h6 class="mt-3 mb-1">Guido C</h6>
+    <%= image_tag review.user.profile_picture ,class: "d-block avatar avatar-xl p-2 mb-2"%>
+    <h6 class="mt-3 mb-1"><%= review.user.username %></h6>
     <span class="text-muted text-sm"><%= review.user.reviews.size %> Recensioni</span></div>
   <div class="media-body">
 
     <div class="review-stars-contiainer row">
       <div class="col-md-6">
         <div class="track">
-         <label class="mr-2 mb-1">Percorso</label><% 4.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
+         <label class="mr-2 mb-1">Percorso</label><% review.track.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
         </div>
         <div class="track">
-          <label class="mr-2 mb-1">Difficoltà</label><% 3.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
+          <label class="mr-2 mb-1">Difficoltà</label><% review.difficulty.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
         </div>
       </div>
       <div class="col-md-6">
         <div class="track">
-          <label class="mr-2 mb-1">Percorso</label> <% 4.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
+          <label class="mr-2 mb-1">Organizzazione</label> <% review.organization.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
         </div>
         <div class="track">
-          <label class="mr-2 mb-1">Consigli la gara?</label><% 5.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
+          <label class="mr-2 mb-1">Consigli la gara?</label><% review.recomandation.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
         </div>
       </div>
       </div>

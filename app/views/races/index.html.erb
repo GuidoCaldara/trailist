@@ -36,7 +36,7 @@
             <div class="d-flex">
               <% Race::CATEGORIES.each do |category| %>
               <input id="<%= category %>" name="category[]" type="checkbox" id="form_name" class="form-control" value="<%= category %>" hidden>
-              <label class="mr-3 btn btn-sm btn-outline-primary race-type-selector" id="<%= category %>-label" for="<%= category %>" ><%= category %></label>
+              <label class="mr-3 btn btn-sm btn-outline-light race-type-selector" id="<%= category %>-label" for="<%= category %>" ><%= category %></label>
             <% end %>
 
             </div>
@@ -48,7 +48,7 @@
             <div class="d-flex ">
               <% Race::DISTANCES.each_with_index do |distance, i| %>
               <input id="<%= distance %>" name="distance[]" type="checkbox" id="form_name" class="form-control" value="<%= Race::DISTANCE_TYPES[i] %>" hidden>
-              <label class="mr-3 btn btn-sm btn-outline-primary race-type-selector" id="<%= distance %>-label" for="<%= distance %>" ><%= distance %></label>
+              <label class="mr-3 btn btn-sm btn-outline-light race-type-selector" id="<%= distance %>-label" for="<%= distance %>" ><%= distance %></label>
             <% end %>
             </div>
 

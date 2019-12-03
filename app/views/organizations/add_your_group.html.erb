@@ -1,13 +1,18 @@
 <div class="container">
   <div class="row form-row">
     <div class="col-lg-5">
-      <p class="subtitle text-primary">Add a new listing</p>
-      <h1 class="h2 mb-5">Let's get started</h1>
-      <p class="text-muted">His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table.</p>
-      <p class="text-muted mb-5">Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+      <p class="subtitle text-primary">Sei ad un passo dall'aggiungere le tue gare!</p>
+      <h1 class="h2 mb-5">Registra il tuo gruppo sportivo</h1>
+      <p class="text-muted mb-4">Sei ad un passo dall'inserire la tua gara su TrailCalendar.it! Cliccando su continua potrai inserire il gruppo sportivo da te rappresentato e se vuoi puoi dare ai runner tutte le informazioni su di voi! <br>
+      Dalla pagina del gruppo sportivo potrai poi aggiungere e modificare gare e leggere le recensioni che i trail runners lasceranno per i tuoi eventi.</p>
       <p class="mb-5 mb-lg-0">
         <%= link_to "Continua", new_organization_path,  class: "btn btn-primary" %>
     </div>
-    <div class="col-lg-5 ml-auto d-flex align-items-center"><img src="https://d19m59y37dris4.cloudfront.net/directory/1-3/img/illustration/undraw_celebration_0jvk.svg" alt="" style="width: 400px;" class="img-fluid"></div>
+    <div class="col-lg-5 ml-auto d-flex align-items-center">
+      <div class="photo-organization-container" style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.5)), url('<%= image_path "runners-pic.jpg" %>')">
+
+      </div>
+    </div>
   </div>
 </div>
+

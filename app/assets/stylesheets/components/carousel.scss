@@ -1,10 +1,19 @@
 #racePhotoCarousel{
   border-radius: 0px;
   overflow: hidden;
+  height: 350px
 }
 
 
 .carousel-race-img{
 min-height: 300px;
-object-fit: cover
+object-fit: cover;
+height: 100%
+}
+
+.carousel-inner>.carousel-item>img {
+    margin: 0 auto;
+    height: 350px;
+        object-fit: cover;
+
 }

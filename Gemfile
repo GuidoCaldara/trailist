@@ -12,6 +12,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'pg_search'
 gem 'pundit'
+gem 'sendgrid-ruby'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
@@ -21,6 +22,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'geocoder'
 gem 'font-awesome-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'omniauth-facebook'
+gem 'friendly_id', '~> 5.2.4'
+gem 'letter_opener', group: :development
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

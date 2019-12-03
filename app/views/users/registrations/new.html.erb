@@ -5,6 +5,10 @@
     </div>
     <div class="col-md-8 col-lg-5 d-flex align-items-center">
       <div class="w-100 py-5 px-5 position-relative">
+        <p class="subtitle text-primary">Registrati a TrailCalendar</p>
+          <div class="d-flex justify-content-between pr-5">
+           <h2 class="mb-3"><span id="race_step_description">Aggiungi la tua gara</span></h2>
+          </div>
                 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                   <%= f.error_notification %>
 
@@ -29,7 +33,9 @@
                 <% end %>
               <hr class="my-4">
 
-              <button class="btn btn btn-outline-primary btn-block btn-social mb-3"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Facebook</span></button>
+              <%= link_to user_facebook_omniauth_authorize_path, class:"btn btn-block btn-secondary btn-social mb-3" do  %>
+                  <i class="fa-2x fa-facebook-f fab mr-3"> </i>Accedi <span class="d-none d-sm-inline ml-1"> con Facebook</span>
+                <% end %>
               <hr class="my-4">
               <p class="text-center mb-0"><small class="text-muted text-center">Sei gia iscritto? <%= link_to "Accedi", new_user_session_path %></small></p>
               <p class="text-center"><small class="text-muted text-center">Hai dimenticato la password? <%= link_to "Clicca qui", new_user_password_path %></small></p>

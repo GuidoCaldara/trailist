@@ -1,0 +1,28 @@
+  <div class="col-md-4">
+      <div class="card border-0 shadow mb-5">
+        <div class="card-header bg-gray-100 py-4 border-0">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <h4 class="mb-0">Contatti</h4>
+            </div>
+          </div>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mb-4">
+                    <% if @organization.phone %>
+                      <li class="mb-2"> <span class="text-gray-00 text-sm text-decoration-none"><i class="fa fa-phone mr-3"></i></span><span class="text-muted">(020) 123 456 789</span></li>
+                    <% end %>
+                    <% if @organization.email %>
+                      <li class="mb-2"> <a href="#" class=" text-sm text-decoration-none"><i class="fa fa-envelope mr-3"></i><span class="text-muted">info@example.com</span></a></li>
+                    <% end %>
+                    <% if @organization.website %>
+                      <li class="mb-2"> <a href="#" class=" text-sm text-decoration-none"><i class="fa fa-globe mr-3"></i><span class="text-muted">www.example.com</span></a></li>
+                    <% end %>
+                    <% if @organization.facebook %>
+                      <li class="mb-2"> <a href="#" class="text-blue text-sm text-decoration-none"><i class="fab fa-facebook mr-3"></i><span class="text-muted">Facebook</span></a></li>
+                    <% end %>
+                  </ul>
+                  <div class="text-center"><a href="#" class="btn btn-outline-light btn-block"> <i class="far fa-paper-plane mr-2"></i>Invia un messaggio</a></div>
+                </div>
+              </div>
+    </div>
