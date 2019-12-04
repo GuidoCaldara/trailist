@@ -9,12 +9,30 @@ var fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 7, duration: 0 });
 };
 
+
+function higlightMarker(e){
+    const id = e.currentTarget.dataset.raceId
+    const marker = document.querySelector(`[data-marker-race-id='${id}'`)
+    const highlitedMarker = document.querySelector(".marker.highlight")
+    if (highlitedMarker) highlitedMarker.classList.remove("highlight")
+    marker.classList.add("highlight")
+}
+
+
 function updateMarkers(markers){
   var markers = JSON.parse(markers)
   markers.forEach((marker) => {
-    new mapboxgl.Marker()
+    const element = document.createElement('div');
+    element.dataset.markerRaceId = marker.race_id
+    element.className = 'marker';
+    new mapboxgl.Marker(element)
     .setLngLat([ marker.lng, marker.lat ])
     .addTo(indexMap);
+  const cards = document.querySelectorAll(".race-card")
+  cards.forEach((card) => {
+    card.addEventListener('mouseenter', higlightMarker)
+  })
+
 });
 
     //fitMapToMarkers(indexMap, markers);

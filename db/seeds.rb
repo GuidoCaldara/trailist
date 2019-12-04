@@ -19,18 +19,16 @@ my_user = User.create(
   username: "guido c"
   )
 
-my_orga = Organization.create(
+my_orga = Organization.new(
   user: my_user,
   name: "Guido test Organization",
   location: "Albino, lombardia, italy",
   email: Faker::Internet.email,
   phone: Faker::PhoneNumber.phone_number,
   description: lorem,
-  website: "www.mywebsite.com"
 )
-
-
-60.times do
+my_orga.save
+30.times do
   user = User.create(
   email:Faker::Internet.email,
   password: "password",
@@ -45,10 +43,9 @@ my_orga = Organization.create(
       email: Faker::Internet.email,
       phone: Faker::PhoneNumber.phone_number,
       description: lorem,
-      website: "www.mywebsite.com"
-  )
+      )
 
-    rand(1..4).times do
+    rand(1..2).times do
       r = Race.create(
         name: "Race #{rand(30..200)} test",
         length: rand(10..120),

@@ -1,3 +1,15 @@
 #race-show-map{
   overflow: hidden
 }
+
+
+.marker{
+  background-image: asset-url('map-marker.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  &.highlight{
+    background-image: asset-url('map-marker-highlight.png') !important;
+  }
+}

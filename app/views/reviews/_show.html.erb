@@ -6,22 +6,23 @@
   <div class="media-body">
 
     <div class="review-stars-contiainer row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="track">
          <label class="mr-2 mb-1">Percorso</label><% review.track.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
         </div>
-        <div class="track">
-          <label class="mr-2 mb-1">Difficoltà</label><% review.difficulty.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
+<!--         <div class="track">
+          <label class="mr-2 mb-1">Difficoltà</label><%# review.difficulty.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <#% end %>
         </div>
-      </div>
-      <div class="col-md-6">
+
+ -->   </div>
+      <div class="col-md-4">
         <div class="track">
           <label class="mr-2 mb-1">Organizzazione</label> <% review.organization.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
         </div>
-        <div class="track">
-          <label class="mr-2 mb-1">Consigli la gara?</label><% review.recomandation.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <% end %>
+<!--         <div class="track">
+          <label class="mr-2 mb-1">Consigli la gara?</label><%# review.recomandation.times do  %> <i class="fa fa-xs fa-star text-primary"></i> <# end %>
         </div>
-      </div>
+ -->      </div>
       </div>
     <p class="text-muted text-sm pt-2 pb-1"><%= review.content %></p>
     <span class="review-date text small light">Recesione scritta il <%= review.created_at.strftime('%d %B %Y') %></span>

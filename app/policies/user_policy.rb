@@ -15,5 +15,4 @@ class UserPolicy < ApplicationPolicy
   def save_profile?
     user.username.nil?
   end
-
 end

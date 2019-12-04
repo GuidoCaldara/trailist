@@ -14,6 +14,6 @@ class RacePricePolicy < ApplicationPolicy
 
 private
   def user_is_owner?
-    user.organization.races.include?(record.race)
+    user.organization && user.organizations.races.any? && user.organization.races.include?(record.race)
   end
 end

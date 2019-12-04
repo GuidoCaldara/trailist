@@ -30,14 +30,17 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    authorize @organization
   end
 
   def edit
     @organization = Organization.find(params[:id])
+    authorize @organization
   end
 
   def update
     @organization = Organization.find(params[:id])
+    authorize @organization
     if @organization.update(organization_params)
       redirect_to @organization
     else

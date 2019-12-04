@@ -16,9 +16,12 @@ class RacesController < ApplicationController
       @races = @races.filter_by_date(start_date, end_date )
     end
     @markers = @races.map do |race|
-      { lat: race.latitude,
+      {
+        race_id: race.id,
+        lat: race.latitude,
         lng: race.longitude,
-        infoWindow: render_to_string(partial: "race_info_window", locals: { race: race })
+        infoWindow: render_to_string(partial: "race_info_window", locals: { race: race }),
+        image_url: helpers.asset_url('map-marker.png')
       }
     end
     respond_to do |format|

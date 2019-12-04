@@ -83,7 +83,6 @@
       <button type="button" data-toggle="modal" data-target="#newReviewForm" aria-expanded="false" aria-controls="newReviewForm" class="mb-4 ml-4 btn btn-outline-light" >Lascia un recensione</button>
     <% end %>
   </div>
-</div>
 
 
 
@@ -130,6 +129,7 @@
     <% @reviews.each do |review| %>
       <%= render 'reviews/show', review: review %>
     <% end %>
+  </div>
   </div>
 
 

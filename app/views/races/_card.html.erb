@@ -1,5 +1,5 @@
 <%= link_to race, class:"race-link-card" do %>
-      <div class="card overflow-hidden border-0 shadow">
+      <div data-race-id ="<%= race.id %>"class="race-card card overflow-hidden border-0 shadow">
       <% if race.race_photos.any?  %>
         <div class="card-img gradient-overlay" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path race.race_photos.first.picture %>')">
         </div>
@@ -28,11 +28,11 @@
           </div>
           <div class="d-flex align-items-center">
             <%= image_tag 'distance-icon-blue.png', class: "card-icon mr-1" %>
-            <p class="mb-0  mr-3"><%= race.length %> km  </p>
+            <p class="mb-0 text small text-muted  mr-3"><%= race.length %> km  </p>
           </div>
           <div class="d-flex align-items-center">
             <%= image_tag 'elevation-icon-blue.png', class: "card-icon mr-1" %>
-            <p class="mb-0 "><%= race.elevation %>m d+  </p>
+            <p class="mb-0 text small text-muted "><%= race.elevation %>m d+  </p>
           </div>
           </div>
            <div class="">

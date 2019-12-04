@@ -3,6 +3,7 @@ class RacePricesController < ApplicationController
     @race = Race.friendly.find(params[:race_id])
     @prices = @race.race_prices
     @price = RacePrice.new(race: @race)
+    authorize @price
   end
 
   def create
