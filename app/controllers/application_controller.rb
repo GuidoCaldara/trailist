@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   def profile_completed?
     if user_signed_in? && !current_user.username
-      redirect_to complete_profile_users_path
+      redirect_to complete_profile_users_path if params[:controller] != 'users/sessions'
     end
   end
 
