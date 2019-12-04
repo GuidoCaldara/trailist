@@ -13,7 +13,7 @@ module Calendartrail
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.active_storage.draw_routes = false
     config.i18n.default_locale = :it
-
+    config.middleware.use Rack::Attack
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
