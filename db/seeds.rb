@@ -3,8 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create!(name: 'Luke', movie: movies.first)
 CATEGORIES = [ "Vertical", "Skyrace", "Trail", "Ultra"]
 
 lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quo, ab illo! Voluptatem, quibusdam, dolor quod iusto dolorum exercitationem ea esse consequuntur illum pariatur voluptas, dicta sapiente quidem ex nostrum!"
@@ -13,7 +13,7 @@ locations = %w(Milano Albino Parma Bergamo Vicenza Verona Clusone Torino Lissone
 
 elevations = [1000,1500,2000,2500,3000,3500,4000,4500,5000]
 
-my_user = User.create(
+my_user = User.create!(
   email: "guido@test.com",
   password: "password",
   username: "guido c"
@@ -29,14 +29,14 @@ my_orga = Organization.new(
 )
 my_orga.save
 30.times do
-  user = User.create(
+  user = User.create!(
   email:Faker::Internet.email,
   password: "password",
-  username: lorem.split(" ").sample
+  username: Faker::Internet.email
   )
 
   if [true, false, false].sample
-   o = Organization.create(
+   o = Organization.create!(
       user: user,
       name: Faker::Company.name,
       location: locations.sample,
@@ -46,7 +46,7 @@ my_orga.save
       )
 
     rand(1..2).times do
-      r = Race.create(
+      r = Race.create!(
         name: "Race #{rand(30..200)} test",
         length: rand(10..120),
         elevation: elevations.sample,
@@ -60,7 +60,7 @@ my_orga.save
         )
 
       rand(1..5).times do
-        Review.create(
+        Review.create!(
           race:r,
           partecipation_year: 2000 + rand(14..18),
           user: User.all.sample,

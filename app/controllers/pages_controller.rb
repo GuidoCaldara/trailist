@@ -3,4 +3,8 @@ class PagesController < ApplicationController
   def home
     @races = Race.all.sample(3)
   end
+
+
+  def policy
+  end
 end
