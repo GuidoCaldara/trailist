@@ -14,6 +14,6 @@ class RacePhotoPolicy < ApplicationPolicy
 
 private
   def user_is_owner?
-    user.organization && user.organizations.races.any? && user.organization.races.include?(record.race)
+    user.organization && user.organization.races.any? && user.organization.races.include?(record.race)
   end
 end
