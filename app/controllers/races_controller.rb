@@ -44,8 +44,8 @@ class RacesController < ApplicationController
 
   def create
     @race = Race.new(race_params)
-    authorize @race
     @race.organization = current_user.organization
+    authorize @race
     if @race.save
       flash[:success] = "La gara è stata inserita correttamente! Ora puoi aggiungere il prezzo dell'iscrizione e le fotografie!"
       redirect_to race_race_prices_path(@race)
