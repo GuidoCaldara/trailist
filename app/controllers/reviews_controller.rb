@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
-    @race = Race.find(params[:race_id])
+    @race = Race.friendly.find(params[:race_id])
     @review.user = current_user
     @review.race = @race
     authorize @review
