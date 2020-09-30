@@ -17,6 +17,7 @@
     <%= render 'shared/alerts'%>
     <%= yield %>
     <%= render 'layouts/cookies_policy' %>
+    <% yield :javascript %>
     <%= javascript_pack_tag  'application' %>
   </body>
 </html>

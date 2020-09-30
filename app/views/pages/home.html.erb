@@ -97,7 +97,7 @@
       <%= link_to "Continua", organization_path(current_user.organization), class:"ml-3 btn btn-light" %></p>
     <% elsif user_signed_in? %>
       <p class="lead">Inserisci la tua organizzazione e aggiungi le tue gare
-      <%= link_to "Inizia", new_organization_path, class:"ml-3 btn btn-light" %></p>
+      <%= link_to "Inizia", add_your_group_organizations_path, class:"ml-3 btn btn-light" %></p>
     <% else %>
       <p>Aggiungi le tue gare</p>
       <%= link_to "Inizia", new_user_registration_path, class:"ml-3 btn btn-light" %></p>

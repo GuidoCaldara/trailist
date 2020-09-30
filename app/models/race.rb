@@ -11,7 +11,6 @@ class Race < ApplicationRecord
   has_many :reviews, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   validates :race_type, presence: true, inclusion: { in: CATEGORIES }
-  validates :name, presence: true, uniqueness: true
   validates :length, presence: true, numericality: { only_integer: true, greater_than: 1, less_than: 400}
   validates :elevation, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 35000}
   validate :elevation_format
@@ -21,7 +20,7 @@ class Race < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   before_save :set_distance_type
-
+  after_validation :confirm_geolocation
 
   pg_search_scope :search_by_name, against: :name, using: { tsearch: { prefix: true } }
   scope :filter_by_type, ->(types) { where(race_type: types) }
@@ -32,6 +31,13 @@ class Race < ApplicationRecord
     if !elevation.nil? && (elevation % 10) != 0
       errors.add(:elevation, 'Inserisci un dislivello multiplo di 10')
     end
+  end
+
+  def confirm_geolocation
+    if location.present? && !latitude
+      errors.add(:location, 'Inserisci una località corretta')
+    end
+
   end
 
   def date_in_the_future

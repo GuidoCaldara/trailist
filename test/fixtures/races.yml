@@ -4,8 +4,23 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+valid_race:
+  organization: valid_organization
+  name: "Trail Valido"
+  length: 50
+  elevation: 2000
+  location: "Albino, BG"
+  departure_time: <%= Time.now %>
+  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap"
+  race_type: "Vertical"
+  date: <%= Date.today + 20 %>
+valid_race_two:
+  organization: valid_organization
+  name: "Trail Valido two"
+  length: 50
+  elevation: 2000
+  location: "Albino, BG"
+  departure_time: <%= Time.now %>
+  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap"
+  race_type: "Vertical"
+  date: <%= Date.today + 20 %>

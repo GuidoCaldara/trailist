@@ -28,10 +28,14 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'letter_opener', group: :development
 gem 'email_validator'
 gem "validate_url"
+
 gem 'meta-tags'
 
 
 group :development, :test do
+  gem 'capybara'
+  gem 'webdrivers', '~> 4.0'
+  gem 'launchy'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -44,10 +48,10 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  #gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+ # gem 'webdrivers'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
